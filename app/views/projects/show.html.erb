@@ -1,0 +1,56 @@
+
+<section class="section">
+  <% if notice %>
+    <div class="notification is-primary">
+      <button class="delete"></button>
+      <%= notice %></p>
+    </div>
+  <% end %>
+
+  <div class="container">
+    <div class="box">
+      <article class="media">
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>Title:</strong>
+              <%= @project.title %>
+            </p>
+
+            <p>
+              <strong>Tecnology:</strong>
+              <figure class="image is-48x48">
+                <%= image_tag "#{@project.stacks.capitalize}-icon.png", size:"20x20" %>
+              </figure>
+            </p>
+
+            <p>
+              <strong>Objectives:</strong>
+              <%= @project.objectives %>
+            </p>
+
+            <p>
+              <strong>Decisions:</strong>
+              <%= @project.decisions %>
+            </p>
+
+            <p>
+              <strong>Learns:</strong>
+              <%= @project.learns %>
+            </p>
+
+            <%= link_to edit_project_path(@project), class:"button is-link" do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+            <%= link_to projects_path, class:"button is-info" do %>
+              <i class="fas fa-arrow-left"></i>
+            <% end %>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+    
+
+

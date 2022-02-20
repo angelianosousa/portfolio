@@ -1,0 +1,64 @@
+<%= form_with(model: project, local: true) do |form| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="columns featured">
+    <div class='column is-half'>
+      <div class="field">
+        <label class="label">Titulo</label>
+        <div class='control'>
+          <%= form.text_field :title, class:"input is-link is-rounded is-focused" %>
+        </div>
+      </div>
+    </div>
+    
+    <div class='column is-half'>
+      <div class="field">
+        <label class="label">Tecnologias</label>
+        <div class='select is-link is-rounded'>
+          <%= form.select :stacks, options_for_select([['React JS', "react"], ['Ruby On Rails', "ruby_on_rails"], ['Angular JS', "angular"], ['Vue JS', "vue_js"], ['Node JS', "node_js"]]) %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Objetivos</label>
+    <div class="control">
+      <%= form.text_area :objectives, rows:"5", class:"textarea is-link is-rounded" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class='label'>Decisões</label>
+    <div class="control">
+      <%= form.text_area :decisions, rows:"5", class:"textarea is-link is-rounded" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class='label'>Aprendizados</label>
+    <div class="control">
+      <%= form.text_area :learns, rows:"5", class:"textarea is-link is-rounded" %>
+    </div>
+  </div>
+
+  <div class="actions is-grouped">
+    <div class="control">
+      <%= form.submit "Salvar", class:"button is-primary" %>
+      <%= link_to projects_path, class:"button is-info" do %>
+        <i class="fas fa-arrow-left"></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
