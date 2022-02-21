@@ -22,24 +22,23 @@ stacks.each do |stack|
 end
 
 projects = [
-   first: {
-    title: "Finantial System", 
-    production_link: "https://finantial-system.herokuapp.com/users/sign_...", 
-    repository_link: "https://github.com/angelianosousa/finantial_system"
-    },
-  second: { 
-    title: "Personal Agenda",
-    production_link: "https://personalagenda.herokuapp.com/",
-    repository_link: "https://github.com/angelianosousa/personal_agenda"
-  }
+  title: "Finantial System", 
+  production_link: "https://finantial-system.herokuapp.com/users/sign_...", 
+  repository_link: "https://github.com/angelianosousa/finantial_system"
+], [
+  title: "Personal Agenda",
+  production_link: "https://personalagenda.herokuapp.com/",
+  repository_link: "https://github.com/angelianosousa/personal_agenda"
 ]
 
-projects.each do |index|
+projects.each do |project|
+  count = 0
   Project.create(
-    title: project[index][:title],
-    production_link: project[index][:production_link],
-    repository_link: project[index][:repository_link]
+    title: project[count][:title],
+    production_link: project[count][:production_link],
+    repository_link: project[count][:repository_link]
   )
+  count += 1
 end
 
 # 10.times do |project|

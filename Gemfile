@@ -31,6 +31,7 @@ gem 'faker'
 # Inclua nas versões quando rails >= 5.1 
 gem 'jquery-rails'
 gem 'vanilla_nested'
+gem 'trix-rails', require: 'trix'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

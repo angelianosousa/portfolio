@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 2022_02_20_210014) do
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
+    t.string "description"
+    t.text "objectives"
+    t.text "learns"
     t.string "production_link"
     t.string "repository_link"
     t.datetime "created_at", null: false

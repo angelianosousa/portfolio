@@ -17,7 +17,7 @@
 
           <div class="card-image">
             <figure class="image is-2by1">
-              <%= project.pictures.attached? ? image_tag(project.pictures.second, class:"image is-64x64") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
+              <%= project.photo_principal.attached? ? image_tag(project.photo_principal, class:"image is-64x64") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
             </figure>
           </div>
 
@@ -40,21 +40,21 @@
             <p class="title is-6">Desenvolvido com:</p>
 
             <div class="media">
-              <% project.projects_stacks.each do |projects_stacks| %>
+              <% project.projects_stacks.each do |project_stack| %>
                 <figure class="image is-48x48">
-                  <%= projects_stacks.stack.picture.attached? ? image_tag(projects_stacks.stack.picture) : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image is-64x64") %>
+                  <%= project_stack.stack.picture.attached? ? image_tag(project_stack.stack.picture) : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image is-64x64") %>
                 </figure>&nbsp;&nbsp;
               <% end %>
             </div>
 
             <footer class="card-footer" style="padding-top:10px;">
-              <%= link_to project_path(project), class:"button card-footer-item is-link is-small is-rounded" do %>
+              <%= link_to backoffice_project_path(project), class:"button card-footer-item is-link is-small is-rounded" do %>
                 <i class='fas fa-eye'></i>
               <% end %>&nbsp;
-              <%= link_to edit_project_path(project), class:"button card-footer-item is-success is-small is-rounded" do %>
+              <%= link_to edit_backoffice_project_path(project), class:"button card-footer-item is-success is-small is-rounded" do %>
                 <i class='fas fa-edit'></i>
               <% end %>&nbsp;
-              <%= link_to project_path(project), method: :delete, data: { confirm: "Apagar projeto: #{project.title} ?"}, class:"button card-footer-item is-small is-danger is-rounded" do %>
+              <%= link_to backoffice_project_path(project), method: :delete, data: { confirm: "Apagar projeto: #{project.title} ?"}, class:"button card-footer-item is-small is-danger is-rounded" do %>
                 <i class='fas fa-trash'></i>
               <% end %> 
             </footer>

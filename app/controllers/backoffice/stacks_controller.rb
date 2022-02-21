@@ -1,6 +1,4 @@
-class StacksController < ApplicationController
-  layout 'backoffice'
-  before_action :authenticate_user!
+class Backoffice::StacksController < BackofficeController
   before_action :set_stack, only: %i[edit update destroy]
 
   def index
@@ -18,23 +16,23 @@ class StacksController < ApplicationController
     @stack = Stack.new(stack_params)
 
     if @stack.save
-      redirect_to stacks_path, notice: "Tecnologia adicionada com sucesso"
+      redirect_to backoffice_stacks_path, notice: "Tecnologia adicionada com sucesso"
     else
-      redirect_to stacks_path, alert: @stack.errors.full_messages
+      redirect_to backoffice_stacks_path, alert: @stack.errors.full_messages
     end
   end
 
   def update
     if @stack.update(stack_params)
-      redirect_to stacks_path, notice: "Tecnologia atualizada com sucesso"
+      redirect_to backoffice_stacks_path, notice: "Tecnologia atualizada com sucesso"
     else
-      redirect_to stack_path, alert: @stack.errors.full_messages
+      redirect_to backoffice_stack_path, alert: @stack.errors.full_messages
     end
   end
 
   def destroy
     @stack.destroy
-    redirect_to stacks_url, notice: "Stack removida com sucesso!"
+    redirect_to backoffice_stacks_url, notice: "Tecnolgia removida com sucesso!"
   end
 
   private
