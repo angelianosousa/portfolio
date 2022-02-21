@@ -10,15 +10,6 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-
-    <% if notice %>
-      <div class="notification is-primary">
-        <button class="delete"></button>
-        <%= notice %></p>
-      </div>
-    <% end %>
-    
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,51 @@
+<%= form_with(model: stack, local: true) do |form| %>
+  <% if stack.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(stack.errors.count, "error") %> prohibited this stack from being saved:</h2>
+
+      <ul>
+      <% stack.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <label class="label">Titulo da Stack:</label>
+    <div class='control'>
+      <%= form.text_field :name, class:"input is-link is-rounded is-focused" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="file">
+      <label class="file-label">
+        <% if stack.picture.attached? %>
+          <div class="image is-128x128">
+            <%= image_tag stack.picture %>
+          </div>
+        <% else %>
+          <%= form.file_field :picture, class:"file-input is-link is-rounded" %>
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Escolha uma imagem…
+            </span>
+          </span>
+        <% end %>
+      </label>
+    </div>
+  </div>
+
+  <div class="actions is-grouped">
+    <div class="control">
+      <%= form.submit "Salvar", class:"button is-primary" %>
+      <%= link_to stacks_path, class:"button is-info" do %>
+        <i class="fas fa-arrow-left"></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>

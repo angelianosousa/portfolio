@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  layout 'backoffice'
+  before_action :authenticate_user!, except: %i[index]
   before_action :set_project, only: %i[ show edit update destroy ]
 
   # GET /projects or /projects.json
@@ -22,10 +24,11 @@ class ProjectsController < ApplicationController
   # POST /projects or /projects.json
   def create
     @project = Project.new(project_params)
+    @project.pictures.attach(params[:pictures]) if params[:pictures]
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to project_url(@project), notice: "Project was successfully created." }
+        format.html { redirect_to project_url(@project), notice: "Projeto criado com sucesso!" }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +41,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to project_url(@project), notice: "Project was successfully updated." }
+        format.html { redirect_to project_url(@project), notice: "Projeto atualizado com sucesso!" }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +55,7 @@ class ProjectsController < ApplicationController
     @project.destroy
 
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: "Project was successfully destroyed." }
+      format.html { redirect_to projects_url, notice: "Projeto removido com sucesso!" }
       format.json { head :no_content }
     end
   end
@@ -65,6 +68,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:title, :stacks, :objectives, :decisions, :learns)
+      params.require(:project).permit(:title, :production_link, :repository_link, pictures: [], projects_stacks_attributes: [ :id, :stack_id, :_destroy ])
     end
 end

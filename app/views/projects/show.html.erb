@@ -1,12 +1,5 @@
 
 <section class="section">
-  <% if notice %>
-    <div class="notification is-primary">
-      <button class="delete"></button>
-      <%= notice %></p>
-    </div>
-  <% end %>
-
   <div class="container">
     <div class="box">
       <article class="media">
@@ -18,25 +11,17 @@
             </p>
 
             <p>
-              <strong>Tecnology:</strong>
-              <figure class="image is-48x48">
-                <%= image_tag "#{@project.stacks.capitalize}-icon.png", size:"20x20" %>
-              </figure>
+              <strong>Link de Produção:</strong>
+              <%= link_to @project.production_link, target:"_blank" do %>
+                <% image_tag 'server.png', size:"28x28"%>
+              <% end %>
             </p>
 
             <p>
-              <strong>Objectives:</strong>
-              <%= @project.objectives %>
-            </p>
-
-            <p>
-              <strong>Decisions:</strong>
-              <%= @project.decisions %>
-            </p>
-
-            <p>
-              <strong>Learns:</strong>
-              <%= @project.learns %>
+              <strong>Link do Github:</strong>
+              <%= link_to @project.repository_link, target:"_blank" do %>
+                <% image_tag 'GitHub-Emblema.png', size:"48x48"%>
+              <% end %>
             </p>
 
             <%= link_to edit_project_path(@project), class:"button is-link" do %>

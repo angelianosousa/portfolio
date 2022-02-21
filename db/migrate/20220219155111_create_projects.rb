@@ -3,10 +3,7 @@ class CreateProjects < ActiveRecord::Migration[5.2]
     create_table :projects do |t|
       t.string :title
       t.string :production_link
-      t.string :repository
-      t.text :objectives
-      t.text :decisions
-      t.text :learns
+      t.string :repository_link
 
       t.timestamps
     end

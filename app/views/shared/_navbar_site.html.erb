@@ -16,9 +16,8 @@
       <a class="navbar-item">
         Home
       </a>
-
       <a class="navbar-item">
-        Documentation
+        Sobre Mim
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
@@ -47,12 +46,7 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light">
-            Log in
-          </a>
+          <%= link_to "Entrar", new_user_session_path, class:"button" %>
         </div>
       </div>
     </div>

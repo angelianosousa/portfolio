@@ -1,0 +1,42 @@
+<section class="section">
+  <div class='columns is-multiline'>
+
+    <% @stacks.each do |stack| %>
+
+      <div class='column is-one-quarter'>
+        <div class="box">
+          <article class="media">
+            <div class="media-left">
+              <figure class="image is-64x64">
+                <%= stack.picture.attached? ? image_tag(stack.picture, class:"image is-64x64") : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image is-64x64") %>
+              </figure>
+            </div>
+
+            <div class="media-content">
+              <div class="content">
+                <p class="title is-6"><%= stack.name %></p>
+              </div>
+
+              <nav class="level is-mobile">
+                <div class="level-left">
+                  <%= link_to edit_stack_path(stack), class:"button is-link is-small level-item" do %>
+                    <span class="icon is-small">
+                      <i class="fas fa-edit" aria-hidden="true"></i>
+                    </span>
+                  <% end %>
+                  <%= link_to stack_path(stack), method: :delete, data: { confirm: "Quer mesmo apagar #{stack.name} ?"}, class:"button is-danger is-small level-item" do %>
+                    <span class="icon is-small">
+                      <i class="fas fa-trash" aria-hidden="true"></i>
+                    </span>
+                  <% end %>
+                </div>
+              </nav>
+            </div>
+          </article>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+</section>
