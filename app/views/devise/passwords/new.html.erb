@@ -1,0 +1,28 @@
+<h4 class='title is-4 has-icons-left'>
+  <span class='icon is-small is-left'>
+    <i class='fas fa-lock'></i>
+  </span>
+  &nbsp;Esqueceu sua senha ?
+</h4>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <label class='label'>Email</label>
+    <div class='control has-icons-left'>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input", placeholder:"Seu email" %>
+      <span class='icon is-small is-left'>
+        <i class='fas fa-envelope'></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Enviar email de reset de senha", class:"button is-warning is-rounded btn-block" %>
+  </div>
+<% end %><br>
+
+<div class='text-center'>
+  <%= render "devise/shared/links" %>
+</div>

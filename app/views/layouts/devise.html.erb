@@ -5,12 +5,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'user_devise', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'user_devise', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'devise', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'devise', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>    
-    LAYOUT DEVISE USER    
+  <body>
+    <%= render 'shared/site/navbar' %>
+
     <section class='section'>
       <div class='box'>
         <%= yield %>
