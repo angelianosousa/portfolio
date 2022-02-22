@@ -1,0 +1,76 @@
+<footer class='has-background-dark has-text-white'>
+
+  <div class='columns'>
+    <div class='column is-one-third'>
+      <div class="container" id='block'>
+        <h2 class="title is-2 has-text-white">MyPortfolio</h2>
+        <p>Angeliano Sousa</p><br>
+        <p>
+          <span class="icon is-small is-left">
+            <i class="fas fa-phone"></i>
+          </span>
+          +55 85 99602-9676
+        </p><br>
+        <p>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+          angeliano.sousa@gmail.com
+        </p>
+      </div>
+    </div>
+
+    <div class='column is-one-third'>
+      <div class='container has-text-white'>
+        <%= form_with url: "#", class:"form-inline" do |form_contact| %>
+          <div class='column'>
+          <h4 class='title is-4 has-text-white'>Entre em contato</h4>
+            <div class="field">
+              <div class="control has-icons-left has-icons-right">
+                <%= form_contact.email_field :email, class:"input is-link", placeholder:"Seu Email"%>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control has-icons-left">
+                <%= form_contact.phone_field :phone, class:"input is-link", placeholder:"(00) 0 0000-0000" %>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-phone"></i>
+                </span>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <%= form_contact.text_area :message, class:"textarea is-link", placeholder:"Sua mensagem" %>
+              </div>
+            </div>
+
+            <div class="field is-grouped">
+              <div class="control">
+                <%= form_contact.submit "Enviar", class:"button is-link" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class='column is-one-third'>
+      <div class="container">
+        <div class='column'>
+          <h4 class="title is-4 has-text-white">Siga me</h4>
+          <a href="https://www.instagram.com/angelianosousa/" target="_blank" style='margin-bottom:2px;'><ion-icon name="logo-instagram" class='icon is-medium has-text-white'></ion-icon></a>
+          <a href="https://linkedin.com/in/angeliano-sousa" target="_blank" style='margin-bottom:2px;'><ion-icon name="logo-linkedin" class='icon is-medium has-text-white'></ion-icon></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
