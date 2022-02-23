@@ -1,7 +1,7 @@
 <section class='section'>
   <div class='columns is-multiline is-centered'>
     <% @projects.each do |project| %>
-      <div class='column is-3'>
+      <div class='column is-one-third'>
 
         <div class="card has-background-grey-lighter is-rounded">
           <header class="card-header">
@@ -22,29 +22,40 @@
           </div>
 
           <div class="card-content">
-            <p class="title is-6">Links Importantes:</p>
           
-            <div class="media">
-              <figure class="image is-48x48">
-                <%= link_to project.production_link, class:"tag is-warning is-large", target:"_blank" do %>
-                  <% image_tag 'server.png' %>
-                <% end %>
-              </figure>&nbsp;&nbsp;
-              <figure class="image is-64x64" style="widht:50px;">
-                <%= link_to project.repository_link, class:"tag is-large", target:"_blank" do %>
-                  <% image_tag 'GitHub-Emblema.png' %>
-                <% end %>
-              </figure>
-            </div>
-            
-            <p class="title is-6">Desenvolvido com:</p>
+            <div class='columns'>
+              <div class='column'>
+                <p class='title is-6'>Links do projeto:</p>
 
-            <div class="media">
-              <% project.projects_stacks.each do |project_stack| %>
-                <figure class="image is-48x48">
-                  <%= project_stack.stack.picture.attached? ? image_tag(project_stack.stack.picture) : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image is-64x64") %>
-                </figure>&nbsp;&nbsp;
-              <% end %>
+                <div class="media">
+                  <figure class="image is-48x48">
+                    <%= link_to project.production_link, class:"tag is-warning is-large", target:"_blank" do %>
+                      <% image_tag 'server.png' %>
+                    <% end %>
+                  </figure>&nbsp;&nbsp;
+                  <figure class="image is-64x64" style="widht:50px;">
+                    <%= link_to project.repository_link, class:"tag is-large", target:"_blank" do %>
+                      <% image_tag 'GitHub-Emblema.png' %>
+                    <% end %>
+                  </figure>
+                </div>
+              </div>
+
+              <div class='column'>
+                <p class='title is-6'>Tecnologias:</p>
+
+                <div class='columns is-multiline'>
+                  <% project.projects_stacks.each do |project_stack| %>
+                    <div class='column is-half'>
+                      <div class='columns'>
+                        <figure class="image is-48x48">
+                          <%= project_stack.stack.picture.attached? ? image_tag(project_stack.stack.picture, title:"#{project_stack.stack.name}") : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image is-64x64", title:"#{project_stack.stack.name}") %>
+                        </figure>&nbsp;&nbsp;
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
             </div>
 
             <footer class="card-footer" style="padding-top:10px;">
@@ -62,5 +73,9 @@
         </div>
       </div>
     <% end %>
+  </div>
+  
+  <div class='block'>
+    <%= paginate @projects %>
   </div>
 </section>

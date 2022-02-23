@@ -19,7 +19,7 @@
       <a class="navbar-item" href="/site/about_me">
         Sobre Mim
       </a>
-      <a class="navbar-item" href="/site/projects_lists">
+      <a class="navbar-item" href="/site/projects">
         Projetos
       </a>
     </div>
@@ -28,8 +28,8 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if user_signed_in? %>
-            <%= link_to 'Backstage', backoffice_welcome_index_path, class:"button is-primary" %>
-            <%= link_to "Sair", destroy_user_session_path, method: :delete, data: { confirm: "Tem certeza que quer sair ?" }, class:"button is-danger fas fa-sign-out" %>
+            <%= link_to 'Backstage', backoffice_projects_path, class:"button is-primary" %>
+            <%= link_to "Sair", destroy_user_session_path, method: :delete, data: { confirm: "Tem certeza que quer sair ?" }, class:"button is-danger" %>
           <% else %>
             <%= link_to "Entrar", new_user_session_path, class:"button is-link" %>
           <% end %>

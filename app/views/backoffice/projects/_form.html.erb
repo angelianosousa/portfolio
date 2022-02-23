@@ -12,7 +12,7 @@
   <% end %>
   
   <div class='columns'>
-    <div class='column is-half'>
+    <div class='column is-one-third'>
       <div class="field">
         <div class="file">
           <label class="file-label">
@@ -23,7 +23,7 @@
                 <%= image_tag @project.photo_principal %>
               </div>
             <% else %>
-              <%= form.file_field :photo_principal, class:"file-input is-link is-rounded", multiple: true %>
+              <%= form.file_field :photo_principal, class:"file-input is-link is-rounded" %>
               <span class="file-cta">
                 <span class="file-icon">
                   <i class="fas fa-upload"></i>
@@ -38,7 +38,7 @@
       </div>
     </div>
     
-    <div class='column is-half'>
+    <div class='column is-one-third'>
       <div class="field">
         <div class="file">
           <label class="file-label">
@@ -46,8 +46,8 @@
 
             <% if @project.pictures_carousel.attached? %>
               <div class="image is-128x128">
-                <%= @project.pictures_carousel.each do |picture| %>
-                  <% image_tag rails_blob_path(picture, disposition: "attachment") %>
+                <% @project.pictures_carousel.each do |picture| %>
+                  <%= image_tag rails_blob_path(picture, disposition: "attachment") %>
                 <% end %>
               </div>
             <% else %>
@@ -65,6 +65,21 @@
         </div>
       </div>
     </div>
+
+    <div class='column is-one-third'>
+      <label class='label'>Visível na home: </label>
+      <div class="control">
+        <label class="radio">
+          <input type="radio" name="answer">
+          Yes
+        </label>
+        <label class="radio">
+          <input type="radio" name="answer">
+          No
+        </label>
+      </div>
+    </div>
+
   </div>
 
   <div class='columns'>
@@ -101,10 +116,19 @@
   <div class="field">
     <label class='label'>Desenvolvido com:</label>
 
-    <div id='projects-stacks'>
-      <%= form.fields_for :projects_stacks do |projects_stack| %>
-        <%= render 'projects_stack_fields', form: projects_stack %>
-      <% end %>
+    <div class='columns is-multiline'>
+      <div id='projects-stacks'>
+        <%= form.fields_for :projects_stacks do |projects_stack| %>
+          <%= render 'projects_stack_fields', form: projects_stack %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class='field'>
+    <label class='label'>Descrição do projeto</label>
+    <div class='control'>
+      <%= form.text_area :description, class:"textarea is-link is-rounded"%>
     </div>
   </div>
 

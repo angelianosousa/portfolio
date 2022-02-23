@@ -20,5 +20,5 @@ Rails.application.config.assets.precompile += %w(
 Rails.application.config.assets.precompile += %w( 
   site_home.css
   about_me.css
-  projects_lists.css
+  projects_style.css
 )

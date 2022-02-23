@@ -6,7 +6,7 @@
       <h1 class="display-4">Seja bem Vindo!</h1><br>
       <p>Esse é o portfolio do Angeliano com os projetos atuais</p>
       <br>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Clique para ver mais &raquo;</a></p>
+      <p><a class="button is-link is-large" href="#" role="button">Clique para ver mais &raquo;</a></p>
     </div>
   </div>
 
@@ -15,9 +15,11 @@
     <div class="columns is-multiple">
       <% @projects.each do |project| %>
         <div class="column is-one-third">
+
           <div class="card mb-4 shadow-sm">
-            <%= project.photo_principal.attached? ? image_tag(project.photo_principal.third, class:"image is-128x128 is-centered") : image_tag("https://bulma.io/images/placeholders/1280x960.png", size:"1280x960") %>
+            <%= project.photo_principal.attached? ? image_tag(project.photo_principal, size:"1280x960", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png", size:"1280x960", class:"image") %>
             <div class="card-body has-background-grey-dark">
+              <p class='title is-6 has-text-white'>Projeto: <%= project.title %></p>
 
               <div class='columns'>
                 <div class='column'>
@@ -38,11 +40,16 @@
 
                 <div class='column'>
                   <p class='title is-6 has-text-white'>Tecnologias:</p>
-                  <figure class="image is-48x48">
+
+                  <div class='columns is-multiline'>
                     <% project.projects_stacks.each do |project_stack| %>
-                      <%= project_stack.stack.picture.attached? ? image_tag(project_stack.stack.picture) : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image is-64x64") %>
+                      <div class='column is-half'>
+                        <figure class="image is-48x48">
+                          <%= project_stack.stack.picture.attached? ? image_tag(project_stack.stack.picture) : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image is-64x64") %>
+                        </figure>&nbsp;&nbsp;
+                      </div>
                     <% end %>
-                  </figure>&nbsp;&nbsp;
+                  </div>
                 </div>
               </div>
 
@@ -60,7 +67,7 @@
                     <% end %> 
                   <% end %> 
                 </div>
-                <small class="text-muted has-text-white">9 mins</small>
+                <small class="text-muted has-text-white">Atualizado há &nbsp;<%= project.updated_at.min %> min</small>
               </div>
             </div>
 
@@ -71,7 +78,7 @@
     </div>
 
     <hr>
-
+  
   </div> <!-- /container -->
 
 </main>

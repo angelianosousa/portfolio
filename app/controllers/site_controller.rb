@@ -13,8 +13,9 @@ class SiteController < ApplicationController
   end
 
   # TODO a page with all projects paginate
-  def projects_list
-    @projects = Project.all
+  def projects
+    @projects_list = Project.all.includes(:projects_stacks).page(params[:page]).per(3).with_attached_photo_principal
+    @lasts_tree_projects = Project.last(3)
   end
   
 end

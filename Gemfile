@@ -32,6 +32,8 @@ gem 'faker'
 gem 'jquery-rails'
 gem 'vanilla_nested'
 gem 'trix-rails', require: 'trix'
+gem 'kaminari'
+gem 'kaminari-i18n'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

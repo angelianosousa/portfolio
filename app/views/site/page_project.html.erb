@@ -1,1 +1,45 @@
-<h1>Olá</h1>
+<section class="section">
+
+    <main role="main" class="inner cover">
+      <div class="card-image">
+        <figure class="image is-2by1">
+          <%= @project.photo_principal.attached? ? image_tag(@project.photo_principal, class:"image is-64x64") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
+        </figure>
+      </div><br>
+      <h2 class="title is-2">Projeto <%= @project.title %></h2>
+
+      <p class='title is-4'>Tecnologias: </p>
+
+      <div class='columns'>
+        <div class='column is-one-quarter'>
+
+          <div class='columns is-multiline'>
+            <% @project.projects_stacks.each do |project_stack| %>
+              <div class='column is-one-fifth'>
+                <figure class="image is-48x48">
+                  <%= project_stack.stack.picture.attached? ? image_tag(project_stack.stack.picture, title:"#{project_stack.stack.name}") : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image is-64x64", title:"#{project_stack.stack.name}") %>
+                </figure>&nbsp;&nbsp;
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      
+      <h4 class='title is-4'>Descrição do projeto:</h4>
+      <div class='block content'>
+        <p><%= @project.description%></p>
+      </div>
+
+      <h4 class='title is-4'>Objetivos:</h4>
+      <div class='block content'>
+        <p><%= @project.objectives%></p>
+      </div>
+
+      <h4 class='title is-4'>Aprendizados:</h4>
+      <div class='block content'>
+        <p><%= @project.learns%></p>
+      </div>
+      
+    </main>
+
+</section>

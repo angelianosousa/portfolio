@@ -41,6 +41,16 @@ projects.each do |project|
   count += 1
 end
 
+10.times do 
+  Project.create(
+    title: Faker::Movie.title,
+    description: Faker::Lorem.paragraph(sentence_count: 2),
+    # photo_principal: Faker::Placeholdit.image(size: '100x100', format: 'jpg'),
+    production_link: Faker::Internet.url(host: 'example.com'),
+    repository_link: Faker::Internet.url(host: 'example.com')
+  )
+end
+
 # 10.times do |project|
 #   project = Project.create(
 #     title: Faker::Superhero.name,

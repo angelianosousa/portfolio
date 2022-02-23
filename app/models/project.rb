@@ -4,4 +4,6 @@ class Project < ApplicationRecord
   has_one_attached :photo_principal
 
   accepts_nested_attributes_for :projects_stacks, reject_if: :all_blank, allow_destroy: true
+
+  paginates_per 6
 end

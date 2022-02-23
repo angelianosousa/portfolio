@@ -2,7 +2,7 @@ class Backoffice::StacksController < BackofficeController
   before_action :set_stack, only: %i[edit update destroy]
 
   def index
-    @stacks = Stack.all
+    @stacks = Stack.all.with_attached_picture
   end
 
   def new
