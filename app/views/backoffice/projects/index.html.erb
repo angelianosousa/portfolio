@@ -3,14 +3,14 @@
     <% @projects.each do |project| %>
       <div class='column is-one-third'>
 
-        <div class="card has-background-grey-lighter is-rounded">
+        <div class="card has-background-grey is-rounded has-text-white-bis">
           <header class="card-header">
             <div class="card-header-icon">
               <span class="icon">
                 <i class="fas fa-info-circle" aria-hidden="true"></i>
               </span>
             </div>
-            <p class="card-header-title">
+            <p class="card-header-title has-text-white-bis">
               <%= project.title.truncate(20) %>
             </p>
           </header>
@@ -25,7 +25,7 @@
           
             <div class='columns'>
               <div class='column'>
-                <p class='title is-6'>Links do projeto:</p>
+                <p class='title is-6 has-text-white-bis'>Links do projeto:</p>
 
                 <div class="media">
                   <figure class="image is-48x48">
@@ -42,7 +42,7 @@
               </div>
 
               <div class='column'>
-                <p class='title is-6'>Tecnologias:</p>
+                <p class='title is-6 has-text-white-bis'>Tecnologias:</p>
 
                 <div class='columns is-multiline'>
                   <% project.projects_stacks.each do |project_stack| %>
@@ -59,13 +59,13 @@
             </div>
 
             <footer class="card-footer" style="padding-top:10px;">
-              <%= link_to backoffice_project_path(project), class:"button card-footer-item is-link is-small is-rounded" do %>
+              <%= link_to backoffice_project_path(project), class:"button card-footer-item is-link is-small is-rounded is-light" do %>
                 <i class='fas fa-eye'></i>
               <% end %>&nbsp;
-              <%= link_to edit_backoffice_project_path(project), class:"button card-footer-item is-success is-small is-rounded" do %>
+              <%= link_to edit_backoffice_project_path(project), class:"button card-footer-item is-success is-small is-rounded is-light" do %>
                 <i class='fas fa-edit'></i>
               <% end %>&nbsp;
-              <%= link_to backoffice_project_path(project), method: :delete, data: { confirm: "Apagar projeto: #{project.title} ?"}, class:"button card-footer-item is-small is-danger is-rounded" do %>
+              <%= link_to backoffice_project_path(project), method: :delete, data: { confirm: "Apagar projeto: #{project.title} ?"}, class:"button card-footer-item is-small is-danger is-rounded is-light" do %>
                 <i class='fas fa-trash'></i>
               <% end %> 
             </footer>

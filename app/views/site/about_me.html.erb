@@ -1,11 +1,73 @@
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
-  <main role="main" class="inner cover">
-    <h1 class="cover-heading">Cover your page.</h1>
-    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-    <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
-    </p>
-  </main>
+<main role='main'>
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", size:"1280x960", class:"image") %>
+      </div>
+    </div>
 
-</div>
+  <section class="section">
+
+    <div class='container block'>
+
+      <div class='text-center block'>
+        <h3 class='title is-3'>Sobre mim</h3>
+      </div>
+
+      <div class='content is-medium'>
+        <p>Meu nome é <strong>Angeliano</strong> um engenheiro de software de Fortaleza/CE, apaixonado por produtos digitais e ferramentas que são úteis no dia a dia. Sempre estou inventando algum projeto ou ideia e busco sempre aperfeiçoar-las conforme evoluo minhas técnicas.</p>
+
+        <p>Trabalho desde a concepção da ideia, implementação, teste e aprimoramento conforme tenho mais informações sobre o uso das ferramentas.</p>
+      </div>
+
+    </div>
+
+    <div class='container'>
+      <div class='text-center block'>
+        <h3 class='title is-3'>Experiência Profissional</h3>
+      </div>
+
+      <div class='columns is-multiline'>
+      <% 6.times do %>
+        <div class='column is-half block'>
+          <div class='box'>
+            <h5 class='title is-5'>Periodo</h5>
+            <p class='title is-6'>Função</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adip, Lorem ipsum dolor sit amet, consectetur adipLorem ipsum dolor sit amet, consectetur adipLorem ipsum dolor sit amet, consectetur adip</p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class='container'>
+      <div class='text-center block'>
+        <h3 class='title is-3'>Minhas Habilidades</h3>
+      </div>
+
+      <% 5.times do %>
+        <article class="media">
+          <figure class="media-left">
+            <p class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+            </p>
+          </figure>
+
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Nome da tecnologia</strong>
+                <br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+              </p>
+            </div>
+
+          </div>
+        </article>
+      <% end %>
+      
+    </div>
+  </section>
+
+</main>

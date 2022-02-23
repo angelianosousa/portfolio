@@ -13,12 +13,10 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
-        Home
-      </a>
-
-      <a class="navbar-item">
-        Documentation
+      <a class="navbar-item has-icons-left", href="/">
+        <span class='icon is-small is-left'>
+          <i class='fas fa-desktop'></i> &nbsp;&nbsp;Site
+        </span>&nbsp;&nbsp;&nbsp;
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
@@ -27,14 +25,11 @@
         </a>
 
         <div class="navbar-dropdown">
-            <%= link_to 'Projetos', backoffice_projects_path, class:"navbar-item" %>
-            <%= link_to 'Stacks', backoffice_stacks_path, class:"navbar-item" %>
+          <%= link_to 'Projetos', backoffice_projects_path, class:"navbar-item" %>
+          <%= link_to 'Stacks', backoffice_stacks_path, class:"navbar-item" %>
+
           <hr class="navbar-divider">
-          <a class="navbar-item">
-            <%= link_to root_path, class:"navbar-item" do %>
-              <i class='fas fa-sign-out'></i> Site
-            <% end %>
-          </a>
+          
           <a class="navbar-item">
             <%= link_to destroy_user_session_path(current_user), method: :delete, data: { confirm:"Tem certeza que quer sair ?" }, class:"navbar-item" do %>
               <i class='fas fa-sign-out'></i> Sair
