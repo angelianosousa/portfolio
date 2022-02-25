@@ -2,5 +2,5 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery/dist/jquery.min
-//= require vanilla_nested
+//= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl.min
 //= require_tree .

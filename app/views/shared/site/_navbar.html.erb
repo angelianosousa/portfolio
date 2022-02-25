@@ -1,18 +1,23 @@
-<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+<nav class="navbar is-dark is-mobile" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item has-text-success-dark" href='/'>
-      Angeliano Sousa
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
     </a>
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
+    <a class="navbar-item has-text-success-dark" href='/'>
+      <span class="icon-text">
+        <span class="icon">
+          <i class="fas fa-desktop"></i>
+        </span>
+        <span>Angeliano Sousa</span>
+      </span>
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
+  <div id="navMenu" class="navbar-menu">
+    <div class="navbar-start is-justify-content-start">
       <a class="navbar-item" href='/'>
         Home
       </a>
@@ -24,14 +29,14 @@
       </a>
     </div>
 
-    <div class="navbar-end">
+    <div class="navbar-end is-justify-content-end">
       <div class="navbar-item">
         <div class="buttons">
           <% if user_signed_in? %>
             <%= link_to 'Backstage', backoffice_projects_path, class:"button is-primary" %>
             <%= link_to "Sair", destroy_user_session_path, method: :delete, data: { confirm: "Tem certeza que quer sair ?" }, class:"button is-danger" %>
           <% else %>
-            <%= link_to "Entrar", new_user_session_path, class:"button is-link" %>
+            <%= link_to "Entrar", new_user_session_path, class:"button is-link is-light" %>
           <% end %>
         </div>
       </div>

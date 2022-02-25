@@ -18,12 +18,12 @@
           <label class="file-label">
             <label class="label">Imagem da <br>Home:</label>&nbsp;&nbsp;&nbsp;
 
-            <% if @project.photo_principal.attached? %>
+            <% if @project.thumbnail.attached? %>
               <div class="image is-128x128">
-                <%= image_tag @project.photo_principal %>
+                <%= image_tag @project.thumbnail %>
               </div>
             <% else %>
-              <%= form.file_field :photo_principal, class:"file-input is-link is-rounded" %>
+              <%= form.file_field :thumbnail, class:"file-input is-link is-rounded" %>
               <span class="file-cta">
                 <span class="file-icon">
                   <i class="fas fa-upload"></i>

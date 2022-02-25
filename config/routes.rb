@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get 'welcome/index'
     resources :projects
     resources :stacks, except: [:show]
+    delete 'stacks/destroy_picture/:id', to: "stacks#delete_picture"
   end
   root to: 'site#index'
 

@@ -36,7 +36,8 @@ gem 'kaminari'
 gem 'kaminari-i18n'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
+gem 'image_processing'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -4,21 +4,60 @@
     <title>Backoffice | MyPortfolio</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag    'backoffice', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'backoffice', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/superhero/bulmaswatch.min.css">
   </head>
 
   <body>    
     <%= render 'shared/navbar_office' %>
-
-    <% if notice %>
-      <div class="notification is-primary">
-        <button class="delete"></button>
-        <p><%= notice %></p>
-      </div>
-    <% end %>
     
     <%= yield %>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+
+          // Add a click event on each of them
+          $navbarBurgers.forEach( el => {
+            el.addEventListener('click', () => {
+
+              // Get the target from the "data-target" attribute
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
+
+              // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+              el.classList.toggle('is-active');
+              $target.classList.toggle('is-active');
+
+            });
+          });
+        }
+
+      });
+    </script>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'backoffice', 'data-turbolinks-track': 'reload' %>
+
+    <% if notice %>
+      <%= javascript_tag do %>
+        $.bootstrapGrowl("<%= notice %>", {
+          type: 'success', // (null, 'info', 'error', 'success')
+          align: 'right', // ('left', 'right', or 'center')
+          width: 250, // (integer, or 'auto')
+          delay: 4000,
+          allow_dismiss: true,
+          stackup_spacing: 10 // spacing between consecutively stacked growls.
+        });
+      <% end %>
+    <% end %>
   </body>
 </html>

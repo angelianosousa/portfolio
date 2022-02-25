@@ -17,44 +17,42 @@
 
           <div class="card-image">
             <figure class="image is-2by1">
-              <%= project.photo_principal.attached? ? image_tag(project.photo_principal, class:"image is-64x64") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
+              <%= project.thumbnail.attached? ? image_tag(project.thumbnail, class:"image is-64x64") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
             </figure>
           </div>
 
           <div class="card-content">
           
-            <div class='columns'>
-              <div class='column'>
-                <p class='title is-6 has-text-white-bis'>Links do projeto:</p>
+            <div class='column'>
+              <p class='title is-6 has-text-white-bis'>Links do projeto:</p>
 
-                <div class="media">
-                  <figure class="image is-48x48">
-                    <%= link_to project.production_link, class:"tag is-warning is-large", target:"_blank" do %>
-                      <% image_tag 'server.png' %>
-                    <% end %>
-                  </figure>&nbsp;&nbsp;
-                  <figure class="image is-64x64" style="widht:50px;">
-                    <%= link_to project.repository_link, class:"tag is-large", target:"_blank" do %>
-                      <% image_tag 'GitHub-Emblema.png' %>
-                    <% end %>
-                  </figure>
-                </div>
+              <div class="media">
+                <figure class="image is-48x48">
+                  <%= link_to project.production_link, class:"tag is-warning is-large", target:"_blank" do %>
+                    <span class="icon">
+                      <i class="fas fa-server"></i>
+                    </span>
+                  <% end %>
+                </figure>&nbsp;&nbsp;
+                <figure class="image is-64x64" style="widht:50px;">
+                  <%= link_to project.repository_link, class:"tag is-large", target:"_blank" do %>
+                    <span class="icon">
+                      <i class="fab fa-github	"></i>
+                    </span>
+                  <% end %>
+                </figure>
               </div>
 
-              <div class='column'>
-                <p class='title is-6 has-text-white-bis'>Tecnologias:</p>
+              <p class='title is-6 has-text-white-bis'>Tecnologias:</p>
 
-                <div class='columns is-multiline'>
-                  <% project.projects_stacks.each do |project_stack| %>
-                    <div class='column is-half'>
-                      <div class='columns'>
-                        <figure class="image is-48x48">
-                          <%= project_stack.stack.picture.attached? ? image_tag(project_stack.stack.picture, title:"#{project_stack.stack.name}") : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image is-64x64", title:"#{project_stack.stack.name}") %>
-                        </figure>&nbsp;&nbsp;
-                      </div>
-                    </div>
-                  <% end %>
-                </div>
+              <div class='columns is-multiline'>
+                <% project.projects_stacks.each do |project_stack| %>
+                  <div class='column is-one-fifth'>
+                    <figure class="image is-48x48">
+                      <%= project_stack.stack.picture.attached? ? image_tag(project_stack.stack.picture, title:"#{project_stack.stack.name}") : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image is-64x64", title:"#{project_stack.stack.name}") %>
+                    </figure>&nbsp;&nbsp;
+                  </div>
+                <% end %>
               </div>
             </div>
 

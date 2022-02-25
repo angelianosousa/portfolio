@@ -29,6 +29,8 @@
               <div class="image is-128x128">
                 <%= image_tag stack.picture %>
               </div>
+              <br>
+              <%= link_to "", backoffice_path(stack), class:"button delete", method: :delete %>
             <% else %>
               <%= form.file_field :picture, class:"file-input is-link is-rounded" %>
               <span class="file-cta">

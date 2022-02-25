@@ -2,58 +2,57 @@
 
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron" id='top-site'>
-    <div class="container">
+    <div class="container has-text-primary-dark">
       <h1 class="display-4">Seja bem Vindo!</h1><br>
       <p>Esse é o portfolio do Angeliano com os projetos atuais</p>
       <br>
-      <p><a class="button is-link is-large" href="#" role="button">Clique para ver mais &raquo;</a></p>
+      <p><a class="button is-link is-large" href="/site/projects" role="button">Clique para ver mais &raquo;</a></p>
     </div>
   </div>
 
   <div class="container">
     <!-- Example row of columns -->
-    <div class="columns is-multiline">
+    <div class="columns is-multiline is-flex-direction-row">
       <% @projects.each do |project| %>
         <div class="column is-one-third">
 
           <div class="card mb-4 shadow-sm">
-            <%= project.photo_principal.attached? ? image_tag(project.photo_principal, size:"1280x960", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png", size:"1280x960", class:"image") %>
+            <%= project.thumbnail.attached? ? image_tag(project.thumbnail, size:"1280x960", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png", size:"1280x960", class:"image") %>
             <div class="card-body has-background-grey-dark">
               <p class='title is-6 has-text-white'>Projeto: <%= project.title %></p>
 
-              <div class='columns'>
-                <div class='column'>
-                  <p class='title is-6 has-text-white'>Links do projeto:</p>
-                  <div class="media">
-                    <figure class="image is-48x48">
-                      <%= link_to project.production_link, class:"tag is-warning is-large", target:"_blank" do %>
-                        <% image_tag 'server.png' %>
-                      <% end %>
-                    </figure>&nbsp;&nbsp;
-                    <figure class="image is-64x64" style="widht:50px;">
-                      <%= link_to project.repository_link, class:"tag is-large", target:"_blank" do %>
-                        <% image_tag 'GitHub-Emblema.png' %>
-                      <% end %>
-                    </figure>
-                  </div>
-                </div>
+              <div class='column'>
+              <p class='title is-6 has-text-white-bis'>Links do projeto:</p>
 
-                <div class='column'>
-                  <p class='title is-6 has-text-white'>Tecnologias:</p>
-
-                  <div class='columns is-multiline'>
-                    <% project.projects_stacks.each do |project_stack| %>
-                      <div class='column is-half'>
-                        <div class='columns'>
-                          <figure class="image is-48x48">
-                            <%= project_stack.stack.picture.attached? ? image_tag(project_stack.stack.picture, title:"#{project_stack.stack.name}") : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image is-64x64", title:"#{project_stack.stack.name}") %>
-                          </figure>&nbsp;&nbsp;
-                        </div>
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
+              <div class="media">
+                <figure class="image is-48x48">
+                  <%= link_to project.production_link, class:"tag is-warning is-large", target:"_blank" do %>
+                    <span class="icon">
+                      <i class="fas fa-server"></i>
+                    </span>
+                  <% end %>
+                </figure>&nbsp;&nbsp;
+                <figure class="image is-64x64" style="widht:50px;">
+                  <%= link_to project.repository_link, class:"tag is-large", target:"_blank" do %>
+                    <span class="icon">
+                      <i class="fab fa-github	"></i>
+                    </span>
+                  <% end %>
+                </figure>
               </div>
+
+              <p class='title is-6 has-text-white-bis'>Tecnologias:</p>
+
+              <div class='columns is-multiline'>
+                <% project.projects_stacks.each do |project_stack| %>
+                  <div class='column is-one-fifth'>
+                    <figure class="image is-48x48">
+                      <%= project_stack.stack.picture.attached? ? image_tag(project_stack.stack.picture, title:"#{project_stack.stack.name}") : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image is-64x64", title:"#{project_stack.stack.name}") %>
+                    </figure>&nbsp;&nbsp;
+                  </div>
+                <% end %>
+              </div>
+            </div>
 
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">

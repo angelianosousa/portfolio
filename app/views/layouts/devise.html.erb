@@ -4,9 +4,12 @@
     <title>Login Administrativo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag    'devise', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'devise', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/darkly/bulmaswatch.min.css">
   </head>
 
   <body>
@@ -17,5 +20,23 @@
         <%= yield %>
       </div>
     </section>
+
+    <%= javascript_include_tag 'devise', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <% unless resource.errors.empty? %>
+      <% resource.errors.full_messages.each do |message| %>
+        <%= javascript_tag do %>
+          $.bootstrapGrowl("<%= message %>", {
+            type: 'danger', // (null, 'info', 'error', 'success')
+            align: 'right', // ('left', 'right', or 'center')
+            width: 250, // (integer, or 'auto')
+            delay: 4000,
+            allow_dismiss: true,
+            stackup_spacing: 10 // spacing between consecutively stacked growls.
+          });
+        <% end %>
+      <% end %>
+    <% end %>
   </body>
 </html>

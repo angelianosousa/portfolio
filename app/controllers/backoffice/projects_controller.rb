@@ -3,7 +3,7 @@ class Backoffice::ProjectsController < BackofficeController
 
   # GET /projects or /projects.json
   def index
-    @projects = Project.all.order(updated_at: :desc).includes(:projects_stacks).page(params[:page]).with_attached_photo_principal
+    @projects = Project.all.order(updated_at: :desc).includes(:projects_stacks).page(params[:page]).with_attached_thumbnail
   end
 
   # GET /projects/1 or /projects/1.json
