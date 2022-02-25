@@ -1,0 +1,13 @@
+<% @professional_carreers.each do |professional_carreer| %>
+  <div class='container'>
+    <div class='columns is-multiline'>
+      <div class='column is-one-third'>
+        <div class='box block'>
+          <h4 class='title is-4'>Cargo: <%= professional_carreer.occupation %></h4>
+          <p class=''>Período: <%= professional_carreer.start_date %> - <%= professional_carreer.end_date %></p>
+          <p>Descrição do trabalho: <%= professional_carreer.description %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

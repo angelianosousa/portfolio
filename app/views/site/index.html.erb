@@ -68,7 +68,7 @@
                     <% end %> 
                   <% end %> 
                 </div>
-                <small class="text-muted has-text-white">Atualizado há &nbsp;<%= project.updated_at.min %> min</small>
+                <small class="text-muted has-text-white">Ultima atualização: &nbsp;<%= I18n.l(project.updated_at.to_date) %></small>
               </div>
             </div>
 

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :projects
     resources :stacks, except: [:show]
     delete 'stacks/destroy_picture/:id', to: "stacks#delete_picture"
+    resources :professional_carreers
   end
   root to: 'site#index'
 

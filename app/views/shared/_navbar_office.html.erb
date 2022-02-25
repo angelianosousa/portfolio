@@ -31,12 +31,18 @@
       <div class="navbar-item has-dropdown is-hoverable">
 
         <a class="navbar-link">
-          Módulos
+          <span class="icon-text">
+            <span class="icon">
+              <i class="fas fa-list"></i>
+            </span>
+            <span>Módulos</span>
+          </span>
         </a>
 
         <div class="navbar-dropdown">
           <%= link_to "Projetos", backoffice_projects_path, class:"navbar-item" %>
           <%= link_to 'Stacks', backoffice_stacks_path, class:"navbar-item" %>
+          <%= link_to "Experiência", backoffice_professional_carreers_path, class:"navbar-item" %>
 
           <hr class="navbar-divider">
           
@@ -45,7 +51,7 @@
               <span class="icon">
                 <i class="fas fa-sign-out-alt"></i>
               </span>
-              <span>Sair</span>
+              <span>Sair <%= params[:controller] %></span>
             </span>
           <% end %>
         </div>
@@ -61,16 +67,25 @@
             </span>
           </p>
       </div>
-        <div class='navbar-item'>
-          <%= link_to new_backoffice_project_path, class:"button is-success", style:"width:150px;" do %>
-            <i class='fas fa-book'></i> &nbsp;Novo Projeto
-          <% end %>
-        </div>
-        <div class='navbar-item'>
-          <%= link_to new_backoffice_stack_path, class:"button is-success", style:"width:150px;" do %>
-            <i class='fas fa-plus-circle'></i> &nbsp;Adicionar Stack
-          <% end %>
-        </div>
+        <% if params[:controller] == 'backoffice/professional_carreers'%>
+          <div class='navbar-item'>
+            <%= link_to new_backoffice_professional_carreer_path, class:"button is-success", style:"width:150px;" do %>
+              <i class='fas fa-book'></i> &nbsp;Nova Experiência
+            <% end %>
+          </div>
+        <% elsif params[:controller] == 'backoffice/projects'%>
+          <div class='navbar-item'>
+            <%= link_to new_backoffice_project_path, class:"button is-success", style:"width:150px;" do %>
+              <i class='fas fa-book'></i> &nbsp;Novo Projeto
+            <% end %>
+          </div>
+        <% elsif params[:controller] == 'backoffice/stacks'%>
+          <div class='navbar-item'>
+            <%= link_to new_backoffice_stack_path, class:"button is-success", style:"width:150px;" do %>
+              <i class='fas fa-plus-circle'></i> &nbsp;Adicionar Stack
+            <% end %>
+          </div>
+        <% end %>
     </div>
   </div>
 </nav>
