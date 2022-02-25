@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+  </head>
+  <body class='box has-background-darker'>
+    <div class='container' style="margin:auto;width:70%;">
+    
+      <h3 class='title is-5'>Angeliano seu site recebeu uma mensagem do(a), <strong>Sr(a). <%= @name %></strong></h3>
+
+      <p class='title is-6'>Informações:</p>
+      <ol style='list-style-type:none;'>
+        <li>Email: <%= @email %></li>
+        <li>Telefone: <%= @phone %></li>
+      </ol><br>
+      <h4 class='title is-5'>Mensagem:</h4>
+      <p class='is-text-justify'><%= @message %></p>
+      <p>Será um novo projeto ?!</p>
+    </div>
+  </body>
+</html>

@@ -17,5 +17,10 @@ class SiteController < ApplicationController
     @projects_list = Project.all.includes(:projects_stacks).page(params[:page]).per(3).with_attached_thumbnail
     @lasts_tree_projects = Project.last(3)
   end
+
+  def sendmail
+    MailContactMailer.with(name: params[:name], email: params[:email], phone: params[:phone], message: params[:message]).contact_interest.deliver
+    redirect_to root_path, notice: "Contato enviado com sucesso, aguarde entrar em contato"
+  end
   
 end

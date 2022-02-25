@@ -9,7 +9,7 @@
 
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
+        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", style:"height:100%;") %>
         <div class="container">
           <div class="carousel-caption text-left">
             <h1>Example headline.</h1>
@@ -20,22 +20,22 @@
       </div>
 
       <div class="carousel-item">
-        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
+        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", style:"height:100%;") %>
         <div class="container">
           <div class="carousel-caption">
             <h1>Another example headline.</h1>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            <p class='has-text-justified'>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
             <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
           </div>
         </div>
       </div>
 
       <div class="carousel-item">
-        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
+        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", style:"height:100%;") %>
         <div class="container">
           <div class="carousel-caption text-right">
             <h1>One more for good measure.</h1>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            <p class='has-text-justified'>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
             <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
           </div>
         </div>
@@ -52,7 +52,6 @@
     </a>
   </div>
 
-
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -65,18 +64,18 @@
       <div class='container'>
 
         <div class="row featurette">
-          <div class="col-md-7">
+          <div class="col-md-5" style='height:320px'>
+            <%= project.thumbnail.attached? ? image_tag(project.thumbnail, size:"450x338", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
+          </div>
+
+          <div class="col-md-7" style="margin-top:-80px;">
             <h2 class="featurette-heading"><%= project.title %> <span class="text-muted">It’ll blow your mind.</span></h2><br>
             <p class="lead"><%= project.description %></p><br>
             <p><%= link_to "Ver detalhes", project_path(project), class:"button is-link is-medium" %></p>
           </div>
-
-          <div class="col-md-5" style='margin-top:80px;'>
-            <%= project.thumbnail.attached? ? image_tag(project.thumbnail, size:"450x338", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
-          </div>
         </div>
-        <hr class="featurette-divider">
 
+        <hr class="featurette-divider">
       </div>
     <% end %>
 
@@ -95,14 +94,13 @@
         <div class="column is-one-third">
           <%= project.thumbnail.attached? ? image_tag(project.thumbnail, size:"450x338", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %><br><br>
           <h4 class='title is-4'><%= project.title %></h4>
-          <p><%= project.description %></p><br>
+          <p class='has-text-justified'><%= project.description %></p><br>
           <p><%= link_to "Ver detalhes", project_path(project), class:"button is-link" %></p>
-        </div><!-- /.col-lg-4 -->
+        </div>
 
       <% end %>
-    </div><!-- /.row -->
+    </div>
 
   </div><!-- /.container -->
 
 </main>
-
