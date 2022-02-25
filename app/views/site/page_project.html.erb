@@ -3,7 +3,7 @@
     <main role="main" class="inner cover">
       <div class="card-image">
         <figure class="image is-2by1">
-          <%= @project.photo_principal.attached? ? image_tag(@project.photo_principal, class:"image is-64x64") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
+          <%= @project.thumbnail.attached? ? image_tag(@project.thumbnail, class:"image is-64x64") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
         </figure>
       </div><br>
       <h2 class="title is-2">Projeto <%= @project.title %></h2>
