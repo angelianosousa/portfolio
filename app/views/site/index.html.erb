@@ -63,15 +63,14 @@
                     <%= link_to edit_backoffice_project_path(project), class:"button card-footer-item is-success is-small" do %>
                       <i class='fas fa-edit'></i>
                     <% end %>&nbsp;
-                    <%= link_to backoffice_project_path(project), method: :delete, data: { confirm: "Apagar projeto: #{project.title} ?"}, class:"button is-danger is-small" do %>
+                    <%= link_to backoffice_project_path(project), method: :delete, data: { confirm: "Apagar projeto: #{project.title} ?"}, class:"button card-footer-item is-danger is-small" do %>
                       <i class='fas fa-trash'></i>
                     <% end %> 
                   <% end %> 
                 </div>
-                <small class="text-muted has-text-white">Ultima atualização: &nbsp;<%= I18n.l(project.updated_at.to_date) %></small>
+                <small class="text-right text-muted has-text-white">Ultima atualização: &nbsp;<%= I18n.l(project.updated_at.to_date) %></small>
               </div>
             </div>
-
           </div>
 
         </div>

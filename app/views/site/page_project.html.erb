@@ -3,7 +3,7 @@
     <main role="main" class="inner cover">
       <div class="card-image">
         <figure class="image is-2by1">
-          <%= @project.thumbnail.attached? ? image_tag(@project.thumbnail, class:"image is-64x64") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
+          <%= @project.thumbnail.attached? ? image_tag(@project.thumbnail, class:"image", style:"width:100%") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
         </figure>
       </div><br>
       <h2 class="title is-2">Projeto <%= @project.title %></h2>
@@ -12,12 +12,11 @@
 
       <div class='columns'>
         <div class='column is-one-quarter'>
-
           <div class='columns is-multiline'>
             <% @project.projects_stacks.each do |project_stack| %>
               <div class='column is-one-fifth'>
                 <figure class="image is-48x48">
-                  <%= project_stack.stack.picture.attached? ? image_tag(project_stack.stack.picture, title:"#{project_stack.stack.name}") : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image is-64x64", title:"#{project_stack.stack.name}") %>
+                  <%= project_stack.stack.picture.attached? ? image_tag(project_stack.stack.picture, title:"#{project_stack.stack.name}") : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image", title:"#{project_stack.stack.name}") %>
                 </figure>&nbsp;&nbsp;
               </div>
             <% end %>

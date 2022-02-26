@@ -3,7 +3,11 @@ class Backoffice::ProjectsController < BackofficeController
 
   # GET /projects or /projects.json
   def index
-    @projects = Project.all.order(updated_at: :desc).includes(:projects_stacks).page(params[:page]).with_attached_thumbnail
+    unless params[:title]
+      @projects = Project.all.order(updated_at: :desc).includes(:projects_stacks).page(params[:page]).with_attached_thumbnail
+    else
+      @projects = Project.search_project(params[:title], params[:page]) 
+    end
   end
 
   # GET /projects/1 or /projects/1.json
@@ -69,6 +73,6 @@ class Backoffice::ProjectsController < BackofficeController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:title, :photo_principal, :description, :objectives, :learns, :production_link, :repository_link, pictures_carousel: [], projects_stacks_attributes: [ :id, :stack_id, :_destroy ])
+      params.require(:project).permit(:title, :thumbnail, :description, :objectives, :learns, :production_link, :repository_link, pictures_carousel: [], projects_stacks_attributes: [ :id, :stack_id, :_destroy ])
     end
 end

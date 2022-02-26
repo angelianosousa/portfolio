@@ -45,20 +45,18 @@ end
   Project.create(
     title: Faker::Movie.title,
     description: Faker::Lorem.paragraph(sentence_count: 2),
-    # photo_principal: Faker::Placeholdit.image(size: '100x100', format: 'jpg'),
     production_link: Faker::Internet.url(host: 'example.com'),
-    repository_link: Faker::Internet.url(host: 'example.com')
+    repository_link: Faker::Internet.url(host: 'example.com'),
+    objectives: Faker::Lorem.paragraph_by_chars,
+    learns: Faker::Lorem.sentence(word_count: 5)
   )
 end
 
-# 10.times do |project|
-#   project = Project.create(
-#     title: Faker::Superhero.name,
-#     objectives: Faker::Lorem.paragraph_by_chars,
-#     learns: Faker::Lorem.sentence(word_count: 5)
-#   )
-
-#   Stack.all.sample(rand 2..4).each do |stack|
-#     project.projects_stacks << stack
-#   end
-# end
+6.times do 
+  ProfessionalCarreer.create(
+    start_date: Faker::Date.in_date_period,
+    end_date: Faker::Date.in_date_period,
+    occupation: Faker::Lorem.sentence(word_count: 5),
+    description: Faker::Lorem.paragraph(sentence_count: 2),
+  )
+end

@@ -6,7 +6,7 @@ class Project < ApplicationRecord
   validate :thumbnail_format
   accepts_nested_attributes_for :projects_stacks, reject_if: :all_blank, allow_destroy: true
 
-  paginates_per 6
+  paginates_per 8
 
   def resize_image
     resized_image = MiniMagick::Image.read(thumbnail.download)
@@ -34,4 +34,8 @@ class Project < ApplicationRecord
       errors.add(:thumbnail, 'precisa ser no formato image')
     end
   end
+
+  scope :search_project, -> (title, page){ 
+    where("lower(title) LIKE ?", "%#{title.downcase}%").includes(:projects_stacks).page(page).with_attached_thumbnail
+  }
 end

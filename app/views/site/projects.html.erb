@@ -8,27 +8,45 @@
     </ol>
 
     <div class="carousel-inner">
-    
       <div class="carousel-item active">
-        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", style:"height:100%;") %>
+        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", style:"widht:100%") %>
         <div class="container">
           <div class="carousel-caption text-left">
-            <h1>Example headline.</h1>
-            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+            <h1><%= @lasts_tree_projects.first.title %></h1>
+            <p><%= @lasts_tree_projects.first.description %></p>
+            <%= link_to "Ir para o projeto", project_path(@lasts_tree_projects.first), class:"button is-primary is-large" %>
           </div>
         </div>
       </div>
-
+      <div class="carousel-item">
+        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", style:"widht:100%") %>
+        <div class="container">
+          <div class="carousel-caption text-left">
+            <h1><%= @lasts_tree_projects.second.title %></h1>
+            <p><%= @lasts_tree_projects.second.description %></p>
+            <%= link_to "Ir para o projeto", project_path(@lasts_tree_projects.second), class:"button is-primary is-large" %>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", style:"widht:100%") %>
+        <div class="container">
+          <div class="carousel-caption text-left">
+            <h1><%= @lasts_tree_projects.third.title %></h1>
+            <p><%= @lasts_tree_projects.third.description %></p>
+            <%= link_to "Ir para o projeto", project_path(@lasts_tree_projects.third), class:"button is-primary is-large" %>
+          </div>
+        </div>
+      </div>
     </div>
     
     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
+      <span class="sr-only">Anterior</span>
     </a>
     <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
+      <span class="sr-only">Próximo</span>
     </a>
   </div>
 
