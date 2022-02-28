@@ -1,5 +1,6 @@
 class SiteController < ApplicationController
   layout 'site'
+  
   def index
     @projects = Project.first(3)
   end
@@ -8,15 +9,14 @@ class SiteController < ApplicationController
     @project = Project.find(params[:id])
   end
 
-  # TODO about me
   def about_me
     @professional_carreers = ProfessionalCarreer.all
     @stacks = Stack.all
   end
 
   def projects
-    @projects_list = Project.all.includes(:projects_stacks).page(params[:page]).per(3).with_attached_thumbnail
-    @lasts_tree_projects = Project.last(3)
+    @projects_list = Project.where(visible_on_home: true).includes(:projects_stacks).page(params[:page]).per(3).with_attached_thumbnail
+    @lasts_tree_projects = Project.where(visible_on_home: true).last(3)
   end
 
   def sendmail

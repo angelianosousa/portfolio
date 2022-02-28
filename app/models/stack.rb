@@ -3,6 +3,7 @@ class Stack < ApplicationRecord
   has_many :projects_stacks, dependent: :destroy
 
   validate :picture_format
+  validates :name, presence: true
 
   def resize_image
     resized_image = MiniMagick::Image.read(picture.download)

@@ -18,7 +18,7 @@ User.create(email:"user@user.com", password:"user123", password_confirmation:"us
 stacks = ["React", "Ruby on Rails", "Angular JS", "Vue JS", "Node JS"]
 
 stacks.each do |stack|
-  Stack.create(name: stack)
+  Stack.create(name: stack, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, fugiat optio excepturi quidem exercitationem quia ipsa ipsum laudantium ex ipsam veritatis non sit impedit? Explicabo ex facere sint ducimus est.")
 end
 
 projects = [
@@ -36,7 +36,8 @@ projects.each do |project|
   Project.create(
     title: project[count][:title],
     production_link: project[count][:production_link],
-    repository_link: project[count][:repository_link]
+    repository_link: project[count][:repository_link],
+    visible_on_home: true
   )
   count += 1
 end
@@ -44,7 +45,7 @@ end
 10.times do 
   Project.create(
     title: Faker::Movie.title,
-    description: Faker::Lorem.paragraph(sentence_count: 2),
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, fugiat optio excepturi quidem exercitationem quia ipsa ipsum laudantium ex ipsam veritatis non sit impedit? Explicabo ex facere sint ducimus est.",
     production_link: Faker::Internet.url(host: 'example.com'),
     repository_link: Faker::Internet.url(host: 'example.com'),
     objectives: Faker::Lorem.paragraph_by_chars,

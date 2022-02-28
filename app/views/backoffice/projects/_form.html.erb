@@ -70,12 +70,12 @@
       <label class='label'>Visível na home: </label>
       <div class="control">
         <label class="radio">
-          <input type="radio" name="answer">
-          Yes
+          <%= form.radio_button :visible_on_home, true %>
+          Sim
         </label>
         <label class="radio">
-          <input type="radio" name="answer">
-          No
+          <%= form.radio_button :visible_on_home, false %>
+          Não
         </label>
       </div>
     </div>

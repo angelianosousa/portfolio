@@ -22,14 +22,20 @@
       </div>
 
       <div class='columns is-multiline'>
-        <% @professional_carreers.each do |professional_carreer| %>
-          <div class='column is-half block'>
-            <div class='box'>
-              <h5 class='title is-5'>Periodo: <%= professional_carreer.period %></h5>
-              <p class='title is-6'>Função: <%= professional_carreer.occupation %></p>
-              <p class='has-text-justified'><%= professional_carreer.description%></p>
-            </div>
+        <% unless @professional_carreers.present? %>
+          <div class='is-centered' style='text-align:center;height:250px;padding-top:100px;margin:auto'>
+            <p class='title is-3'>Em breve...</p>
           </div>
+        <% else %>
+          <% @professional_carreers.each do |professional_carreer| %>
+            <div class='column is-half block'>
+              <div class='box'>
+                <h5 class='title is-5'>Periodo: <%= professional_carreer.period %></h5>
+                <p class='title is-6'>Função: <%= professional_carreer.occupation %></p>
+                <p class='has-text-justified'><%= professional_carreer.description%></p>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div><br>
@@ -40,27 +46,33 @@
       </div>
 
       <div class='columns is-multiline'>
-        <% @stacks.each do |stack| %>
-          <div class='column is-half'>
-            <article class="media">
-              <figure class="media-left">
-                <p class="image is-48x48">
-                  <%= stack.picture.attached? ? cl_image_tag(url_for(stack.picture), :secure=>"true") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
-                </p>
-              </figure>
-
-              <div class="media-content">
-                <div class="content">
-                  <p class='has-text-justified'>
-                    <strong><%= stack.name %></strong>
-                    <br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-                  </p>
-                </div>
-              </div>
-              
-            </article>
+        <% unless @stacks.present? %>
+          <div class='is-centered' style='text-align:center;height:250px;padding-top:100px;margin:auto'>
+            <p class='title is-3'>Em breve...</p>
           </div>
+        <% else %>
+          <% @stacks.each do |stack| %>
+            <div class='column is-half'>
+              <article class="media">
+                <figure class="media-left">
+                  <p class="image is-48x48">
+                    <%= stack.picture.attached? ? cl_image_tag(url_for(stack.picture), :secure=>"true") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
+                  </p>
+                </figure>
+
+                <div class="media-content">
+                  <div class="content">
+                    <p class='has-text-justified'>
+                      <strong><%= stack.name %></strong>
+                      <br>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                    </p>
+                  </div>
+                </div>
+                
+              </article>
+            </div>
+          <% end %>
         <% end %>
       </div>
       

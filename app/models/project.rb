@@ -4,6 +4,7 @@ class Project < ApplicationRecord
   has_one_attached :thumbnail
   
   validate :thumbnail_format
+  validates :title, :production_link, :repository_link, presence: true
   accepts_nested_attributes_for :projects_stacks, reject_if: :all_blank, allow_destroy: true
 
   paginates_per 8
@@ -36,6 +37,6 @@ class Project < ApplicationRecord
   end
 
   scope :search_project, -> (title, page){ 
-    where("lower(title) LIKE ?", "%#{title.downcase}%").includes(:projects_stacks).page(page).with_attached_thumbnail
+    where("lower(title) LIKE ? AN", "%#{title.downcase}%").includes(:projects_stacks).page(page).with_attached_thumbnail
   }
 end

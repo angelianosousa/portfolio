@@ -47,7 +47,7 @@ class Backoffice::StacksController < BackofficeController
   end
 
   def stack_params
-    params.require(:stack).permit(:name, :picture)
+    params.require(:stack).permit(:name, :picture, :description)
   end
   
 end

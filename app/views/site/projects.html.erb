@@ -57,24 +57,29 @@
   <div class="container marketing">
 
     <!-- START THE FEATURETTES -->
-
-    <% @projects_list.each do |project| %>
-      <div class='container'>
-
-        <div class="row featurette">
-          <div class="col-md-5" style='height:320px'>
-            <%= project.thumbnail.attached? ? image_tag(project.thumbnail, size:"450x338", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
-          </div>
-
-          <div class="col-md-7" style="margin-top:-80px;">
-            <h2 class="featurette-heading"><%= project.title %> <span class="text-muted">It’ll blow your mind.</span></h2><br>
-            <p class="lead"><%= project.description %></p><br>
-            <p><%= link_to "Ver detalhes", project_path(project), class:"button is-link is-medium" %></p>
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
+    <% unless @projects_list.present? %>
+      <div class='is-centered' style='text-align:center;height:250px;padding-top:100px;margin:auto;'>
+        <p class='title is-3'>Em breve...</p>
       </div>
+    <% else %>
+      <% @projects_list.each do |project| %>
+        <div class='container'>
+
+          <div class="row featurette">
+            <div class="col-md-5" style='height:320px'>
+              <%= project.thumbnail.attached? ? image_tag(project.thumbnail, size:"450x338", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
+            </div>
+
+            <div class="col-md-7" style="margin-top:-80px;">
+              <h2 class="featurette-heading"><%= project.title %> <span class="text-muted">It’ll blow your mind.</span></h2><br>
+              <p class="lead"><%= project.description %></p><br>
+              <p><%= link_to "Ver detalhes", project_path(project), class:"button is-link is-medium" %></p>
+            </div>
+          </div>
+
+          <hr class="featurette-divider">
+        </div>
+      <% end %>
     <% end %>
 
     <div class='block' style='margin-bottom:40px;'>
@@ -87,15 +92,21 @@
     <p class='title is-4'>Últimos projetos...</p>
     
     <div class="columns" style='margin-bottom:80px;'>
-      <% @lasts_tree_projects.each do |project| %>
-
-        <div class="column is-one-third">
-          <%= project.thumbnail.attached? ? image_tag(project.thumbnail, size:"450x338", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %><br><br>
-          <h4 class='title is-4'><%= project.title %></h4>
-          <p class='has-text-justified'><%= project.description %></p><br>
-          <p><%= link_to "Ver detalhes", project_path(project), class:"button is-link" %></p>
+      <% unless @lasts_tree_projects.present? %>
+        <div class='is-centered' style='text-align:center;height:250px;padding-top:100px;'>
+          <p class='title is-3'>Em breve...</p>
         </div>
+      <% else %>
+        <% @lasts_tree_projects.each do |project| %>
 
+          <div class="column is-one-third">
+            <%= project.thumbnail.attached? ? image_tag(project.thumbnail, size:"450x338", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %><br><br>
+            <h4 class='title is-4'><%= project.title %></h4>
+            <p class='has-text-justified'><%= project.description %></p><br>
+            <p><%= link_to "Ver detalhes", project_path(project), class:"button is-link" %></p>
+          </div>
+
+        <% end %>
       <% end %>
     </div>
 
