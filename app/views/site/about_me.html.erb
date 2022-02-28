@@ -45,7 +45,7 @@
             <article class="media">
               <figure class="media-left">
                 <p class="image is-48x48">
-                  <%= stack.picture.attached? ? image_tag(stack.picture, class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image") %>
+                  <%= stack.picture.attached? ? cl_image_tag(url_for(stack.picture), :secure=>"true") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
                 </p>
               </figure>
 

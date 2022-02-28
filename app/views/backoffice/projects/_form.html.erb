@@ -23,7 +23,7 @@
                 <%= image_tag @project.thumbnail %>
               </div>
             <% else %>
-              <%= form.file_field :thumbnail, class:"file-input is-link is-rounded" %>
+              <%= form.file_field :thumbnail, direct_upload: true, class:"file-input is-link is-rounded" %>
               <span class="file-cta">
                 <span class="file-icon">
                   <i class="fas fa-upload"></i>
@@ -51,7 +51,7 @@
                 <% end %>
               </div>
             <% else %>
-              <%= form.file_field :pictures_carousel, class:"file-input is-link is-rounded", multiple: true %>
+              <%= form.file_field :pictures_carousel, direct_upload: true, class:"file-input is-link is-rounded", multiple: true %>
               <span class="file-cta">
                 <span class="file-icon">
                   <i class="fas fa-upload"></i>
@@ -116,7 +116,7 @@
   <div class="field">
     <label class='label'>Desenvolvido com:</label>
 
-    <div class='columns is-multiline'>
+    <div class='columns is-multiline is-mobile'>
       <div id='projects-stacks'>
         <%= form.fields_for :projects_stacks do |projects_stack| %>
           <%= render 'projects_stack_fields', form: projects_stack %>

@@ -5,3 +5,5 @@
 //= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl.min
 //= require_tree .
 //= require_self
+
+require("@rails/activestorage").start()

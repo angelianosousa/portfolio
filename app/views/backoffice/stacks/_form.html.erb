@@ -25,23 +25,19 @@
         <label class='label'>Imagem: </label>
         <div class="file">
           <label class="file-label">
-            <% if stack.picture.attached? %>
-              <div class="image is-128x128">
-                <%= image_tag stack.picture %>
-              </div>
-              <br>
-              <%= link_to "", backoffice_path(stack), class:"button delete", method: :delete %>
-            <% else %>
-              <%= form.file_field :picture, class:"file-input is-link is-rounded" %>
-              <span class="file-cta">
-                <span class="file-icon">
-                  <i class="fas fa-upload"></i>
-                </span>
-                <span class="file-label">
-                  Escolha uma imagem…
-                </span>
+            <div class="image is-128x128">
+              <%= stack.picture.attached? ? cl_image_tag(url_for(stack.picture), :transformation => { :width => 400, :crop => "pad" }) : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image is-64x64") %>
+            </div>
+            <br>
+            <%= form.file_field :picture, class:"file-input is-link is-rounded" %>
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
               </span>
-            <% end %>
+              <span class="file-label">
+                Escolha uma imagem…
+              </span>
+            </span>
           </label>
         </div>
       </div>

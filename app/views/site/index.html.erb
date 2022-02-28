@@ -43,11 +43,11 @@
 
               <p class='title is-6 has-text-white-bis'>Tecnologias:</p>
 
-              <div class='columns is-multiline'>
+              <div class='columns is-multiline is-mobile'>
                 <% project.projects_stacks.each do |project_stack| %>
                   <div class='column is-one-fifth'>
-                    <figure class="image is-48x48">
-                      <%= project_stack.stack.picture.attached? ? image_tag(project_stack.stack.picture, title:"#{project_stack.stack.name}") : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image is-64x64", title:"#{project_stack.stack.name}") %>
+                    <figure class="image is-32x32">
+                      <%= project_stack.stack.picture.attached? ? cl_image_tag(url_for(project_stack.stack.picture), :width=>400, :height=>400, crop:"pad", :secure=>"true") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
                     </figure>&nbsp;&nbsp;
                   </div>
                 <% end %>

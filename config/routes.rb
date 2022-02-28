@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   namespace :backoffice do 
     get 'welcome/index'
-    resources :projects
+    resources :projects, except: [:show]
     resources :stacks, except: [:show]
     delete 'stacks/destroy_picture/:id', to: "stacks#delete_picture"
     resources :professional_carreers

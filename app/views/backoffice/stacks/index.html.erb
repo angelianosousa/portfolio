@@ -7,7 +7,7 @@
           <article class="media">
             <div class="media-left">
               <figure class="image is-64x64">
-                <%= stack.picture.attached? ? image_tag(stack.picture, class:"image is-64x64") : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image is-64x64") %>
+                <%= stack.picture.attached? ? cl_image_tag(url_for(stack.picture), :width=>500, :height=>500, crop:"fill", :secure=>"true") : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image is-64x64") %>
               </figure>
             </div>
 
