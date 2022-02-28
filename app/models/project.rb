@@ -37,6 +37,6 @@ class Project < ApplicationRecord
   end
 
   scope :search_project, -> (title, page){ 
-    where("lower(title) LIKE ? AN", "%#{title.downcase}%").includes(:projects_stacks).page(page).with_attached_thumbnail
+    where("lower(title) LIKE ?", "%#{title.downcase}%").includes(:projects_stacks).page(page).with_attached_thumbnail
   }
 end
