@@ -7,6 +7,7 @@ class CreateProjects < ActiveRecord::Migration[5.2]
       t.text :learns
       t.string :production_link
       t.string :repository_link
+      t.boolean :visible_on_home, default: false
 
       t.timestamps
     end

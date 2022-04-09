@@ -13,7 +13,6 @@
 
 ## Próximas Features
 * Gerar pdf no modelo curriculo onde posso escolher quais experiências mostrar
-* Carrossel /projects com imagens e call to action para conhecer novos projetos
 
 ## Como usar o Projeto
 

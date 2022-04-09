@@ -9,31 +9,28 @@
 
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", style:"widht:100%") %>
+        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", class:'img-fluid', style:"widht:100%") %>
         <div class="container">
           <div class="carousel-caption text-left">
             <h1><%= @lasts_tree_projects.first.title %></h1>
-            <p><%= @lasts_tree_projects.first.description %></p>
             <%= link_to "Ir para o projeto", project_path(@lasts_tree_projects.first), class:"button is-primary is-large" %>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", style:"widht:100%") %>
+        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", class:'img-fluid', style:"widht:100%") %>
         <div class="container">
           <div class="carousel-caption text-left">
             <h1><%= @lasts_tree_projects.second.title %></h1>
-            <p><%= @lasts_tree_projects.second.description %></p>
             <%= link_to "Ir para o projeto", project_path(@lasts_tree_projects.second), class:"button is-primary is-large" %>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", style:"widht:100%") %>
+        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", class:'img-fluid', style:"widht:100%") %>
         <div class="container">
           <div class="carousel-caption text-left">
             <h1><%= @lasts_tree_projects.third.title %></h1>
-            <p><%= @lasts_tree_projects.third.description %></p>
             <%= link_to "Ir para o projeto", project_path(@lasts_tree_projects.third), class:"button is-primary is-large" %>
           </div>
         </div>
@@ -57,24 +54,30 @@
   <div class="container marketing">
 
     <!-- START THE FEATURETTES -->
-
-    <% @projects_list.each do |project| %>
-      <div class='container'>
-
-        <div class="row featurette">
-          <div class="col-md-5" style='height:320px'>
-            <%= project.thumbnail.attached? ? image_tag(project.thumbnail, size:"450x338", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
-          </div>
-
-          <div class="col-md-7" style="margin-top:-80px;">
-            <h2 class="featurette-heading"><%= project.title %> <span class="text-muted">It’ll blow your mind.</span></h2><br>
-            <p class="lead"><%= project.description %></p><br>
-            <p><%= link_to "Ver detalhes", project_path(project), class:"button is-link is-medium" %></p>
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
+    <% unless @projects_list.present? %>
+      <div class='is-centered' style='text-align:center;height:250px;padding-top:100px;margin:auto;'>
+        <p class='title is-3'>Em breve...</p>
       </div>
+    <% else %>
+      <% @projects_list.each do |project| %>
+        <div class='container'>
+
+          <div class="row featurette">
+            <div class="col-md-5" style='height:320px'>
+              <%= project.thumbnail.attached? ? image_tag(project.thumbnail, size:"450x338", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
+            </div>
+
+            <div class="col-md-7" style="margin-top:-80px;">
+              <h2 class="featurette-heading"><%= project.title %></h2><br>
+              <p class='title is-5 has-text-white-bis'>O que é o projeto ?</p>
+              <p class='has-text-justified'><%= project.description %></p><br>
+              <p><%= link_to "Ver detalhes", project_path(project), class:"button is-link is-small" %></p>
+            </div>
+          </div>
+
+          <hr class="featurette-divider">
+        </div>
+      <% end %>
     <% end %>
 
     <div class='block' style='margin-bottom:40px;'>
@@ -87,15 +90,30 @@
     <p class='title is-4'>Últimos projetos...</p>
     
     <div class="columns" style='margin-bottom:80px;'>
-      <% @lasts_tree_projects.each do |project| %>
-
-        <div class="column is-one-third">
-          <%= project.thumbnail.attached? ? image_tag(project.thumbnail, size:"450x338", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %><br><br>
-          <h4 class='title is-4'><%= project.title %></h4>
-          <p class='has-text-justified'><%= project.description %></p><br>
-          <p><%= link_to "Ver detalhes", project_path(project), class:"button is-link" %></p>
+      <% unless @lasts_tree_projects.present? %>
+        <div class='is-centered' style='text-align:center;height:250px;padding-top:100px;'>
+          <p class='title is-3'>Em breve...</p>
         </div>
+      <% else %>
+        <% @lasts_tree_projects.each do |project| %>
 
+          <div class="column is-one-third">
+            <%= project.thumbnail.attached? ? image_tag(project.thumbnail, size:"450x338", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %><br><br>
+            <h4 class='title is-4'><%= project.title %></h4>
+            <p class='has-text-justified'><%= project.description %></p><br>
+            <div class='columns is-multiline is-mobile'>
+              <% project.projects_stacks.each do |project_stack| %>
+                <div class='column is-one-fifth'>
+                  <figure class="image is-32x32">
+                    <%= project_stack.stack.picture.attached? ? cl_image_tag(url_for(project_stack.stack.picture), :width=>400, :height=>400, crop:"pad", :secure=>"true") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
+                  </figure>&nbsp;&nbsp;
+                </div>
+              <% end %>
+            </div>
+            <p><%= link_to "Leia mais...", project_path(project), class:"button is-link" %></p>
+          </div>
+
+        <% end %>
       <% end %>
     </div>
 

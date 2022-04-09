@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2022_02_25_185519) do
     t.text "learns"
     t.string "production_link"
     t.string "repository_link"
+    t.boolean "visible_on_home", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 2022_02_25_185519) do
 
   create_table "stacks", force: :cascade do |t|
     t.string "name"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
