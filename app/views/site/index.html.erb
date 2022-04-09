@@ -20,70 +20,69 @@
       <% else %>
         <% @projects.each do |project| %>
           <div class="column is-one-third">
-
-            <div class="card mb-4 shadow-sm">
-              <%= project.thumbnail.attached? ? image_tag(project.thumbnail, size:"1280x960", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png", size:"1280x960", class:"image") %>
-              <div class="card-body has-background-grey-dark">
-                <p class='title is-6 has-text-white'>Projeto: <%= project.title %></p>
-
-                <div class='column'>
-                <p class='title is-6 has-text-white-bis'>Links do projeto:</p>
-
-                <div class="media">
-                  <figure class="image is-48x48">
-                    <%= link_to project.production_link, class:"tag is-warning is-large", target:"_blank" do %>
-                      <span class="icon">
-                        <i class="fas fa-server"></i>
-                      </span>
-                    <% end %>
-                  </figure>&nbsp;&nbsp;
-                  <figure class="image is-64x64" style="widht:50px;">
-                    <%= link_to project.repository_link, class:"tag is-large", target:"_blank" do %>
-                      <span class="icon">
-                        <i class="fab fa-github	"></i>
-                      </span>
-                    <% end %>
-                  </figure>
-                </div>
-
-                <p class='title is-6 has-text-white-bis'>Tecnologias:</p>
-
-                <div class='columns is-multiline is-mobile'>
-                  <% project.projects_stacks.each do |project_stack| %>
-                    <div class='column is-one-fifth'>
-                      <figure class="image is-32x32">
-                        <%= project_stack.stack.picture.attached? ? cl_image_tag(url_for(project_stack.stack.picture), :width=>400, :height=>400, crop:"pad", :secure=>"true") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
-                      </figure>&nbsp;&nbsp;
-                    </div>
-                  <% end %>
-                </div>
+            <div class="card mb-4 shadow-sm has-background-grey-dark">
+              <div class="card-image">
+                <figure class="image is-3by2">
+                  <%= project.thumbnail.attached? ? image_tag(project.thumbnail, size:"1280x960", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png", size:"1280x960", class:"image") %>
+                </figure>
               </div>
 
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <%= link_to project_path(project), class:"button card-footer-item is-link is-small is-light" do %>
-                      Leia mais...
-                    <% end %>&nbsp;
-                    <% if user_signed_in? %>
-                      <%= link_to edit_backoffice_project_path(project), class:"button card-footer-item is-success is-small" do %>
-                        <i class='fas fa-edit'></i>
-                      <% end %>&nbsp;
-                      <%= link_to backoffice_project_path(project), method: :delete, data: { confirm: "Apagar projeto: #{project.title} ?"}, class:"button card-footer-item is-danger is-small" do %>
-                        <i class='fas fa-trash'></i>
-                      <% end %> 
-                    <% end %> 
+                <div class='card-content'>
+                  <p class='title is-4 has-text-success'><%= project.title %></p>
+                  
+                  <p class='title is-6 has-text-success'>Links do projeto:</p>
+
+                  <div class="media">
+                    <figure class="image is-48x48">
+                      <%= link_to project.production_link, class:"tag is-warning is-large", target:"_blank" do %>
+                        <span class="icon">
+                          <i class="fas fa-server"></i>
+                        </span>
+                      <% end %>
+                    </figure>&nbsp;&nbsp;
+                    <figure class="image is-64x64" style="widht:50px;">
+                      <%= link_to project.repository_link, class:"tag is-large", target:"_blank" do %>
+                        <span class="icon">
+                          <i class="fab fa-github	"></i>
+                        </span>
+                      <% end %>
+                    </figure>
                   </div>
-                  <small class="text-right text-muted has-text-white">Ultima atualização: &nbsp;<%= I18n.l(project.updated_at.to_date) %></small>
-                </div>
-              </div>
-            </div>
 
+                  <p class='title is-6 has-text-success'>Tecnologias:</p>
+
+                  <div class='columns is-multiline is-mobile'>
+                    <% project.projects_stacks.each do |project_stack| %>
+                      <div class='column is-one-fifth'>
+                        <figure class="image is-32x32">
+                          <%= project_stack.stack.picture.attached? ? cl_image_tag(url_for(project_stack.stack.picture), :width=>400, :height=>400, crop:"pad", :secure=>"true") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
+                        </figure>&nbsp;&nbsp;
+                      </div>
+                    <% end %>
+                  </div>
+
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <%= link_to project_path(project), class:"button card-footer-item is-link is-small is-light" do %>
+                        Leia mais...
+                      <% end %>&nbsp;
+                      <% if user_signed_in? %>
+                        <%= link_to edit_backoffice_project_path(project), class:"button card-footer-item is-success is-small" do %>
+                          <i class='fas fa-edit'></i>
+                        <% end %>&nbsp;
+                        <%= link_to backoffice_project_path(project), method: :delete, data: { confirm: "Apagar projeto: #{project.title} ?"}, class:"button card-footer-item is-danger is-small" do %>
+                          <i class='fas fa-trash'></i>
+                        <% end %> 
+                      <% end %>
+                    </div>
+                    <small class="text-right text-muted has-text-white">Ultima atualização: &nbsp;<%= I18n.l(project.updated_at.to_date) %></small>
+                  </div>
+                </div>
+            </div>
           </div>
         <% end %>
       <% end %>
     </div>
-
-    <hr>
   
   </div> <!-- /container -->
 

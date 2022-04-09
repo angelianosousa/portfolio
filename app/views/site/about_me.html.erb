@@ -1,6 +1,7 @@
 <main role='main'>
-  
-  <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"image", style:"width:100%") %>
+  <figure class="image is-2by1">
+    <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"img-fluid", style:"width: 100%;") %>
+  </figure>
 
   <section class="section has-background-darker">
 
@@ -30,7 +31,7 @@
           <% @professional_carreers.each do |professional_carreer| %>
             <div class='column is-half block'>
               <div class='box'>
-                <h5 class='title is-5'>Periodo: <%= professional_carreer.period %></h5>
+                <h5 class='title is-6 has-text-success'>Periodo: <%= professional_carreer.period %></h5>
                 <p class='title is-6'>Função: <%= professional_carreer.occupation %></p>
                 <p class='has-text-justified'><%= professional_carreer.description%></p>
               </div>
@@ -63,8 +64,7 @@
                 <div class="media-content">
                   <div class="content">
                     <p class='has-text-justified'>
-                      <strong><%= stack.name %></strong>
-                      <br>
+                      <strong class='has-text-success'><%= stack.name %></strong><br>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
                     </p>
                   </div>

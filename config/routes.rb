@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     resources :projects, except: [:show]
     resources :stacks, except: [:show]
     resources :professional_carreers
-
   end
 
   get 'site/page_project/:id', to: "site#page_project", as: 'project'

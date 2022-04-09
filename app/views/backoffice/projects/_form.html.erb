@@ -37,34 +37,6 @@
         </div>
       </div>
     </div>
-    
-    <div class='column is-one-third'>
-      <div class="field">
-        <div class="file">
-          <label class="file-label">
-            <label class="label">Imagens do <br>carrosel:</label>&nbsp;&nbsp;&nbsp;
-
-            <% if @project.pictures_carousel.attached? %>
-              <div class="image is-128x128">
-                <% @project.pictures_carousel.each do |picture| %>
-                  <%= image_tag rails_blob_path(picture, disposition: "attachment") %>
-                <% end %>
-              </div>
-            <% else %>
-              <%= form.file_field :pictures_carousel, direct_upload: true, class:"file-input is-link is-rounded", multiple: true %>
-              <span class="file-cta">
-                <span class="file-icon">
-                  <i class="fas fa-upload"></i>
-                </span>
-                <span class="file-label">
-                  Escolha até 3 imagens…
-                </span>
-              </span>
-            <% end %>
-          </label>
-        </div>
-      </div>
-    </div>
 
     <div class='column is-one-third'>
       <label class='label'>Visível na home: </label>

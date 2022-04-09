@@ -1,24 +1,26 @@
-# README
+# Sistema Meu Portfolio
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## O que é o Projeto ?
+É um sistema para gerenciar meu portfolio de projetos e expor as experiências ao longo de minha carreira como desenvolvedor onde o objetivo é facilitar a criação de curriculos sempre que precisar e ter um histórico pessoal registrado.
 
-Things you may want to cover:
+## Tecnologias
 
-* Ruby version
+* Ruby 2.7.5
+* Rails 5.2.6
+* PostgreSQL
+* Bootstrap 4.3.1
+* Bulma 0.9.3
 
-* System dependencies
+## Próximas Features
+* Gerar pdf no modelo curriculo onde posso escolher quais experiências mostrar
 
-* Configuration
+## Como usar o Projeto
 
-* Database creation
+~~~ruby
+  bundle
+  rails db:create db:migrate db:seed
+  rails s
+~~~
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Links
+* Produção: <https://portfolio-angeliano.herokuapp.com>

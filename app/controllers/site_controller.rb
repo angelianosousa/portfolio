@@ -2,7 +2,7 @@ class SiteController < ApplicationController
   layout 'site'
 
   def index
-    @projects = Project.first(3)
+    @projects = Project.where(visible_on_home: true)
   end
 
   def page_project
@@ -10,8 +10,8 @@ class SiteController < ApplicationController
   end
 
   def about_me
-    @professional_carreers = ProfessionalCarreer.all
-    @stacks = Stack.all
+    @professional_carreers = ProfessionalCarreer.order(start_date: :asc)
+    @stacks = Stack.order(name: :asc)
   end
 
   def projects

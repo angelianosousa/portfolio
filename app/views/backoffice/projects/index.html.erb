@@ -1,7 +1,7 @@
 <section class='section'>
   <div class='columns is-multiline is-centered'>
     <% @projects.each do |project| %>
-      <div class='column is-one-quarter'>
+      <div class='column is-one-third'>
 
         <div class="card is-rounded has-text-white-bis">
           <header class="card-header">
@@ -44,7 +44,9 @@
               </div>
 
               <p class='title is-6 has-text-white-bis'>Tecnologias:</p>
-
+              <% unless project.projects_stacks.present? %>
+                <p style='height:64px;'>Nenhuma stack adicionada</p><br>
+              <% end %>
               <div class='columns is-multiline is-mobile'>
                 <% project.projects_stacks.each do |project_stack| %>
                   <div class='column is-one-fifth'>

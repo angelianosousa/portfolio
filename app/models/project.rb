@@ -1,13 +1,12 @@
 class Project < ApplicationRecord
   has_many :projects_stacks, dependent: :destroy
-  has_many_attached :pictures_carousel
   has_one_attached :thumbnail
   
   validate :thumbnail_format
   validates :title, :production_link, :repository_link, presence: true
   accepts_nested_attributes_for :projects_stacks, reject_if: :all_blank, allow_destroy: true
 
-  paginates_per 8
+  paginates_per 9
 
   def resize_image
     resized_image = MiniMagick::Image.read(thumbnail.download)

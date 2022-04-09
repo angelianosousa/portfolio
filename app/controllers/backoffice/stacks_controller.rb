@@ -11,7 +11,7 @@ class Backoffice::StacksController < BackofficeController
 
   def edit
   end
-  
+
   def create
     @stack = Stack.new(stack_params)
 
@@ -49,5 +49,5 @@ class Backoffice::StacksController < BackofficeController
   def stack_params
     params.require(:stack).permit(:name, :picture, :description)
   end
-  
+
 end
