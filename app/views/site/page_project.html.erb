@@ -1,9 +1,9 @@
 <section class="section">
 
     <main role="main" class="inner cover">
-      <h2 class="title is-2">Projeto <%= @project.title %></h2>
+      <h2 class="title is-2"><strong class='has-text-success'><%= @project.title %></strong></h2>
 
-      <p class='title is-4'>Tecnologias: </p>
+      <p class='title is-4'><strong class='has-text-success'>Tecnologias</strong> </p>
 
       <div class='columns'>
         <div class='column is-one-quarter'>
@@ -19,17 +19,17 @@
         </div>
       </div>
       
-      <h4 class='title is-4'>Descrição do projeto:</h4>
+      <h4 class='title is-4'><strong class='has-text-success'>Descrição do projeto</strong></h4>
       <div class='block content'>
         <p><%= @project.description%></p>
       </div>
 
-      <h4 class='title is-4'>Objetivos:</h4>
+      <h4 class='title is-4'><strong class='has-text-success'>Objetivos</strong></h4>
       <div class='block content'>
         <p><%= @project.objectives%></p>
       </div>
 
-      <h4 class='title is-4'>Aprendizados:</h4>
+      <h4 class='title is-4'><strong class='has-text-success'>Aprendizados</strong></h4>
       <div class='block content'>
         <p><%= @project.learns%></p>
       </div>
