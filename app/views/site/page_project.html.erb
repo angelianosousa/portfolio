@@ -1,11 +1,6 @@
 <section class="section">
 
     <main role="main" class="inner cover">
-      <div class="card-image">
-        <figure class="image is-2by1">
-          <%= @project.thumbnail.attached? ? image_tag(@project.thumbnail, class:"img-fluid", style:"width:100%") : image_tag("https://bulma.io/images/placeholders/1280x960.png", class:"img-fluid", style:"width: 100%;") %>
-        </figure>
-      </div><br>
       <h2 class="title is-2">Projeto <%= @project.title %></h2>
 
       <p class='title is-4'>Tecnologias: </p>
