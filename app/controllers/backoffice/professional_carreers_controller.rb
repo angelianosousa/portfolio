@@ -6,10 +6,6 @@ class Backoffice::ProfessionalCarreersController < BackofficeController
     @professional_carreers = ProfessionalCarreer.all
   end
 
-  # GET /professional_carreers/1 or /professional_carreers/1.json
-  def show
-  end
-
   # GET /professional_carreers/new
   def new
     @professional_carreer = ProfessionalCarreer.new
@@ -25,7 +21,7 @@ class Backoffice::ProfessionalCarreersController < BackofficeController
 
     respond_to do |format|
       if @professional_carreer.save
-        format.html { redirect_to professional_carreer_url(@professional_carreer), notice: "Professional carreer was successfully created." }
+        format.html { redirect_to backoffice_professional_carreers_path, notice: "Experiência profissional criada com sucesso!" }
         format.json { render :show, status: :created, location: @professional_carreer }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +34,7 @@ class Backoffice::ProfessionalCarreersController < BackofficeController
   def update
     respond_to do |format|
       if @professional_carreer.update(professional_carreer_params)
-        format.html { redirect_to professional_carreer_url(@professional_carreer), notice: "Professional carreer was successfully updated." }
+        format.html { redirect_to backoffice_professional_carreers_path, notice: "Experiência profissional atualizada com sucesso!" }
         format.json { render :show, status: :ok, location: @professional_carreer }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +48,7 @@ class Backoffice::ProfessionalCarreersController < BackofficeController
     @professional_carreer.destroy
 
     respond_to do |format|
-      format.html { redirect_to professional_carreers_url, notice: "Professional carreer was successfully destroyed." }
+      format.html { redirect_to backoffice_professional_carreers_path, notice: "Experiência profissional removida com sucesso!" }
       format.json { head :no_content }
     end
   end

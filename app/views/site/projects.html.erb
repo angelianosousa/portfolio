@@ -1,55 +1,6 @@
 <main role="main">
 
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", class:'img-fluid', style:"widht:100%") %>
-        <div class="container">
-          <div class="carousel-caption text-left">
-            <h1><%= @lasts_tree_projects.first.title %></h1>
-            <%= link_to "Ir para o projeto", project_path(@lasts_tree_projects.first), class:"button is-primary is-large" %>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", class:'img-fluid', style:"widht:100%") %>
-        <div class="container">
-          <div class="carousel-caption text-left">
-            <h1><%= @lasts_tree_projects.second.title %></h1>
-            <%= link_to "Ir para o projeto", project_path(@lasts_tree_projects.second), class:"button is-primary is-large" %>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <%= image_tag("https://bulma.io/images/placeholders/1280x960.png", class:'img-fluid', style:"widht:100%") %>
-        <div class="container">
-          <div class="carousel-caption text-left">
-            <h1><%= @lasts_tree_projects.third.title %></h1>
-            <%= link_to "Ir para o projeto", project_path(@lasts_tree_projects.third), class:"button is-primary is-large" %>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Anterior</span>
-    </a>
-    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Próximo</span>
-    </a>
-  </div>
-
-  <!-- Marketing messaging and featurettes
-  ================================================== -->
-  <!-- Wrap the rest of the page in another container to center all the content. -->
+  <%= render "shared/site/header" %>
 
   <div class="container marketing">
 
@@ -63,13 +14,10 @@
         <div class='container'>
 
           <div class="row featurette">
-            <div class="col-md-5" style='height:320px'>
-              <%= project.thumbnail.attached? ? image_tag(project.thumbnail, size:"450x338", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %>
-            </div>
 
             <div class="col-md-7" style="margin-top:-80px;">
-              <h2 class="featurette-heading"><%= project.title %></h2><br>
-              <p class='title is-5 has-text-white-bis'>O que é o projeto ?</p>
+              <h2 class="featurette-heading"><strong class='has-text-success'><%= project.title %></strong></h2><br>
+              <p class='title is-5 has-text-white-bis'> <strong class='has-text-success'>Sobre o projeto</strong></p>
               <p class='has-text-justified'><%= project.description %></p><br>
               <p><%= link_to "Ver detalhes", project_path(project), class:"button is-link is-small" %></p>
             </div>
@@ -98,7 +46,6 @@
         <% @lasts_tree_projects.each do |project| %>
 
           <div class="column is-one-third">
-            <%= project.thumbnail.attached? ? image_tag(project.thumbnail, size:"450x338", class:"image") : image_tag("https://bulma.io/images/placeholders/1280x960.png") %><br><br>
             <h4 class='title is-4'><%= project.title %></h4>
             <p class='has-text-justified'><%= project.description %></p><br>
             <div class='columns is-multiline is-mobile'>

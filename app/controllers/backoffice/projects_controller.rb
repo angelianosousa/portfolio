@@ -73,6 +73,6 @@ class Backoffice::ProjectsController < BackofficeController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:title, :visible_on_home, :thumbnail, :description, :objectives, :learns, :production_link, :repository_link, projects_stacks_attributes: [ :id, :stack_id, :_destroy ])
+      params.require(:project).permit(:title, :visible_on_home, :description, :objectives, :learns, :production_link, :repository_link, projects_stacks_attributes: [ :id, :stack_id, :_destroy ])
     end
 end
