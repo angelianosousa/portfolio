@@ -4,7 +4,7 @@ class Backoffice::ProjectsController < BackofficeController
   # GET /projects or /projects.json
   def index
     unless params[:title]
-      @projects = Project.all.order(updated_at: :desc).includes(:projects_stacks).page(params[:page]).with_attached_thumbnail
+      @projects = Project.all.order(updated_at: :desc).includes(:projects_stacks).page(params[:page])
     else
       @projects = Project.search_project(params[:title], params[:page]) 
     end
