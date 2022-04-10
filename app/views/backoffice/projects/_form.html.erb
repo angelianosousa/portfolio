@@ -22,17 +22,14 @@
               <div class="image is-128x128">
                 <%= image_tag @project.thumbnail %>
               </div>
-            <% else %>
-              <%= form.file_field :thumbnail, direct_upload: true, class:"file-input is-link is-rounded" %>
-              <span class="file-cta">
-                <span class="file-icon">
-                  <i class="fas fa-upload"></i>
-                </span>
-                <span class="file-label">
-                  Escolha a thumb…
-                </span>
-              </span>
             <% end %>
+            &nbsp;&nbsp;&nbsp;
+            <%= form.file_field :thumbnail, direct_upload: true, class:"file-input is-link is-rounded" %>
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+            </span>
           </label>
         </div>
       </div>
