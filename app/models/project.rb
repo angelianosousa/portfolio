@@ -7,6 +7,6 @@ class Project < ApplicationRecord
   paginates_per 9
 
   scope :search_project, -> (title, page){ 
-    where("lower(title) LIKE ?", "%#{title.downcase}%").includes(:projects_stacks).page(page).with_attached_thumbnail
+    where("lower(title) LIKE ?", "%#{title.downcase}%").includes(:projects_stacks).page(page)
   }
 end
